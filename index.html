@@ -2054,6 +2054,14 @@
         if (startY === 0 || animating) return;
         animating = true;
 
+        // Pre-load all content above current position before animating.
+        // Both scrolls happen synchronously in the same JS tick — no repaint occurs
+        // between them, so the user sees nothing. But the browser lays out all sections,
+        // forcing any lazily-rendered content above to be fully painted before scroll starts.
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        document.body.getBoundingClientRect(); // force layout
+        window.scrollTo({ top: startY, behavior: 'instant' });
+
         btn.style.transition = 'none';
 
         var pullDuration   = 408;
