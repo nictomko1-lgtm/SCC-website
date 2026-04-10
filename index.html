@@ -241,9 +241,9 @@
             100% { background-position: 130% center; }
         }
         @keyframes e-sparkle {
-            0%, 40%  { opacity: 0; transform: scale(0); }
-            44%      { opacity: 1; transform: scale(1.68); }
-            52%      { opacity: 0; transform: scale(0); }
+            0%, 34%  { opacity: 0; transform: scale(0); }
+            38%      { opacity: 1; transform: scale(1.68); }
+            46%      { opacity: 0; transform: scale(0); }
             100%     { opacity: 0; transform: scale(0); }
         }
         .shine-word {
@@ -976,6 +976,64 @@
             .stat + .stat { border-left: none; padding-left: 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.07); }
             .cta-banner { padding: 52px 24px; }
             .footer-inner { flex-direction: column; align-items: flex-start; }
+
+            /* ── STATIC MOBILE: disable all decorative animations ── */
+            .reveal, .reveal.revealed {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .shimmer-beam, .shimmer-beam-2 {
+                animation: none !important;
+                opacity: 0 !important;
+            }
+            .shine-word {
+                animation: none !important;
+                background: none !important;
+                -webkit-background-clip: unset !important;
+                background-clip: unset !important;
+                -webkit-text-fill-color: #fff !important;
+                color: #fff !important;
+            }
+            .shine-word::after { animation: none !important; opacity: 0 !important; }
+            .hero-car-shadow { opacity: 0 !important; }
+            .hero-steam-glow { opacity: 0 !important; }
+            .hero-hood-flash { animation: none !important; opacity: 0 !important; }
+            #cursor-glow { display: none !important; }
+            #progress-bar { display: none !important; }
+            #scroll-top-btn { display: none !important; }
+            .card-lift { transition: none !important; }
+            .card-lift:hover { transform: none !important; box-shadow: none !important; }
+            .gallery-item:hover { box-shadow: none !important; }
+            .gallery-item:hover .gallery-img { transform: none !important; }
+            .gallery-img { transition: none !important; }
+            .photo-tile:hover .photo-tile-img { transform: none !important; }
+            .photo-tile-img { transition: none !important; }
+            .carousel-slide:hover .carousel-img { transform: none !important; }
+            .carousel-img { transition: none !important; }
+            .work-photo-wrap:hover .work-photo-img { transform: none !important; }
+            .work-photo-img { transition: none !important; }
+            .ig-clip { transition: none !important; }
+            .ig-clip:hover { transform: none !important; box-shadow: 0 8px 40px rgba(0,0,0,0.45) !important; }
+            .btn-fill { transition: none !important; }
+            .btn-fill:hover { transform: none !important; }
+            .btn-outline { transition: none !important; }
+            .btn-outline:hover { transform: none !important; }
+            .btn-ig { transition: none !important; }
+            .btn-ig:hover { transform: none !important; }
+            .svc-card-link:hover .card-svc::after, .card-svc:hover::after { animation: none !important; opacity: 0 !important; }
+            .nav-link::after { transition: none !important; }
+
+            /* Fix hero background image for mobile — full-cover centered on the car */
+            .hero-bg-photo img {
+                left: 0 !important;
+                top: 0 !important;
+                height: 100% !important;
+                width: 100% !important;
+                object-fit: cover !important;
+                object-position: 65% center !important;
+                transform: none !important;
+            }
         }
 
         /* ======== SCROLL REVEAL ======== */
@@ -1401,20 +1459,20 @@
         </div>
 
         <div class="features" style="margin-top:40px;">
-            <div class="card card-lift card-svc reveal" style="padding:36px;">
+            <a href="https://www.detailops.ca/book/signature-car-care" target="_blank" rel="noopener noreferrer" class="card card-lift card-svc reveal" style="padding:36px; display:block; text-decoration:none; color:inherit; cursor:pointer;">
                 <div class="feature-icon">
                     <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#0FAFE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 </div>
                 <h3 class="feature-title">We Come to You</h3>
                 <p class="feature-body">Serving Burlington, Oakville, Hamilton, Milton, and surrounding areas up to 25km. Book a time that works for you — we show up, you carry on with your day.</p>
-            </div>
-            <div class="card card-lift card-svc reveal reveal-d1" style="padding:36px;">
+            </a>
+            <a href="https://bloomco.ca" target="_blank" rel="noopener noreferrer" class="card card-lift card-svc reveal reveal-d1" style="padding:36px; display:block; text-decoration:none; color:inherit; cursor:pointer;">
                 <div class="feature-icon">
                     <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#0FAFE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                 </div>
                 <h3 class="feature-title">Pro-Grade Products</h3>
-                <p class="feature-body">We use Bloomco — a Canadian professional detailing line trusted by industry pros since 1987. The same products used on exotic and luxury vehicles, applied by people who actually care about the result.</p>
-            </div>
+                <p class="feature-body">We use <span style="color:#0FAFE8;">Bloomco</span> — a Canadian professional detailing line trusted by industry pros since 1987. The same products used on exotic and luxury vehicles, applied by people who actually care about the result.</p>
+            </a>
             <div class="card card-lift card-svc reveal reveal-d2" style="padding:36px;">
                 <div class="feature-icon">
                     <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#0FAFE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
@@ -1641,9 +1699,10 @@
 <script async src="https://www.instagram.com/embed.js"></script>
 
 <script>
-// Scroll reveal — IntersectionObserver
+// Scroll reveal — IntersectionObserver (disabled on mobile for static rendering)
 (function() {
-    if (!('IntersectionObserver' in window)) {
+    var isMobile = window.matchMedia('(max-width: 640px)').matches;
+    if (isMobile || !('IntersectionObserver' in window)) {
         document.querySelectorAll('.reveal').forEach(function(el) {
             el.classList.add('revealed');
         });
@@ -1664,8 +1723,9 @@
 </script>
 
 <script>
-// Shine text — trigger animation on scroll into view
+// Shine text — trigger animation on scroll into view (desktop only)
 (function() {
+    if (window.matchMedia('(max-width: 640px)').matches) return;
     var shineEl = document.querySelector('.shine-word');
     if (!shineEl || !('IntersectionObserver' in window)) return;
     var obs = new IntersectionObserver(function(entries) {
@@ -1679,8 +1739,9 @@
     obs.observe(document.querySelector('#contact'));
 })();
 
-// Cursor glow — smooth lerp tracking
+// Cursor glow — smooth lerp tracking (desktop only)
 (function() {
+    if (window.matchMedia('(max-width: 640px)').matches) return;
     var glow = document.getElementById('cursor-glow');
     if (!glow) return;
     var cx = -9999, cy = -9999;
@@ -1712,8 +1773,9 @@
 </script>
 
 <script>
-// Hero car-shadow: load animation (dark→bright) + scroll-linked brightness on car/hood area
+// Hero car-shadow: load animation (dark→bright) + scroll-linked brightness (desktop only)
 (function() {
+    if (window.matchMedia('(max-width: 640px)').matches) return; // CSS handles static state on mobile
     var shadow    = document.getElementById('heroCarShadow');
     var glow      = document.getElementById('heroSteamGlow');
     var hoodFlash = document.getElementById('heroHoodFlash');
@@ -1771,15 +1833,16 @@
 </script>
 
 <script>
-// Count-up animation for hero stats
+// Count-up animation for hero stats (desktop only)
 (function() {
+    if (window.matchMedia('(max-width: 640px)').matches) return;
     // Store original target values on first parse
     var targets = [];
 
     function animateCountUp(el, target, prefix) {
         var textNode = el.firstChild;
         if (!textNode || textNode.nodeType !== 3) return;
-        var duration = 900, startTime = null;
+        var duration = 1080, startTime = null;
         textNode.textContent = prefix + '0';
         function step(ts) {
             if (!startTime) startTime = ts;
@@ -1828,42 +1891,58 @@
     var dotsRow  = document.getElementById('galleryDots');
     var items    = track.querySelectorAll('.gallery-item');
     var TOTAL    = items.length;   // 6
-    var VISIBLE  = 3;              // tiles shown at once
     var GAP      = 16;
     var currentPage = 0;
-    var totalPages  = Math.ceil(TOTAL / VISIBLE); // 2
 
-    // Build dot indicators
-    for (var p = 0; p < totalPages; p++) {
-        var dot = document.createElement('button');
-        dot.className = 'gallery-dot' + (p === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', 'Page ' + (p + 1));
-        dot.dataset.page = p;
-        dotsRow.appendChild(dot);
+    function getVisible() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 900) return 2;
+        return 3;
     }
-    var dots = dotsRow.querySelectorAll('.gallery-dot');
 
     function getItemWidth() {
         return items[0].getBoundingClientRect().width;
     }
 
+    function buildDots(totalPages) {
+        dotsRow.innerHTML = '';
+        for (var p = 0; p < totalPages; p++) {
+            var dot = document.createElement('button');
+            dot.className = 'gallery-dot' + (p === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Page ' + (p + 1));
+            dot.dataset.page = p;
+            (function(btn) {
+                btn.addEventListener('click', function() { goToPage(parseInt(btn.dataset.page)); });
+            })(dot);
+            dotsRow.appendChild(dot);
+        }
+    }
+
     function goToPage(page) {
+        var VISIBLE    = getVisible();
+        var totalPages = Math.ceil(TOTAL / VISIBLE);
         page = Math.max(0, Math.min(page, totalPages - 1));
         currentPage = page;
         var startIndex = page * VISIBLE;
         var offset = startIndex * (getItemWidth() + GAP);
         track.style.transform = 'translateX(-' + offset + 'px)';
-        dots.forEach(function(d, i) { d.classList.toggle('active', i === currentPage); });
-        // Disable prev/next at boundaries
+        dotsRow.querySelectorAll('.gallery-dot').forEach(function(d, i) {
+            d.classList.toggle('active', i === currentPage);
+        });
         document.getElementById('galleryPrevBtn').style.opacity = currentPage === 0 ? '0.3' : '1';
         document.getElementById('galleryNextBtn').style.opacity = currentPage === totalPages - 1 ? '0.3' : '1';
     }
 
+    function init() {
+        var VISIBLE    = getVisible();
+        var totalPages = Math.ceil(TOTAL / VISIBLE);
+        currentPage    = Math.min(currentPage, totalPages - 1);
+        buildDots(totalPages);
+        goToPage(currentPage);
+    }
+
     document.getElementById('galleryPrevBtn').addEventListener('click', function() { goToPage(currentPage - 1); });
     document.getElementById('galleryNextBtn').addEventListener('click', function() { goToPage(currentPage + 1); });
-    dots.forEach(function(d) {
-        d.addEventListener('click', function() { goToPage(parseInt(d.dataset.page)); });
-    });
 
     // Keyboard nav
     viewport.addEventListener('keydown', function(e) {
@@ -1871,10 +1950,22 @@
         if (e.key === 'ArrowRight') goToPage(currentPage + 1);
     });
 
-    // Recalculate on resize
-    window.addEventListener('resize', function() { goToPage(currentPage); });
+    // Touch swipe support
+    var touchStartX = null;
+    viewport.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    viewport.addEventListener('touchend', function(e) {
+        if (touchStartX === null) return;
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) goToPage(currentPage + (diff > 0 ? 1 : -1));
+        touchStartX = null;
+    }, { passive: true });
 
-    goToPage(0);
+    // Recalculate on resize
+    window.addEventListener('resize', function() { init(); });
+
+    init();
 })();
 </script>
 
@@ -1907,8 +1998,9 @@
     });
 })();
 
-// Scroll progress bar
+// Scroll progress bar (desktop only)
 (function() {
+    if (window.matchMedia('(max-width: 640px)').matches) return;
     var bar = document.getElementById('progress-bar');
     function updateProgress() {
         var scrollTop = window.scrollY || document.documentElement.scrollTop;
