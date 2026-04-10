@@ -241,9 +241,10 @@
             100% { background-position: 130% center; }
         }
         @keyframes e-sparkle {
-            0%   { opacity: 0; transform: scale(0); }
-            30%  { opacity: 1; transform: scale(1.6); }
-            100% { opacity: 0; transform: scale(0); }
+            0%, 40%  { opacity: 0; transform: scale(0); }
+            44%      { opacity: 1; transform: scale(1.68); }
+            52%      { opacity: 0; transform: scale(0); }
+            100%     { opacity: 0; transform: scale(0); }
         }
         .shine-word {
             display: inline-block;
@@ -277,11 +278,11 @@
             background: #ffffff;
             box-shadow:
                 0 0 2px 1px rgba(255,255,255,1),
-                0 0 5px 2px rgba(255,255,255,0.7),
-                0 0 9px 3px rgba(255,255,255,0.3);
+                0 0 5.5px 2px rgba(255,255,255,0.7),
+                0 0 9.5px 3.5px rgba(255,255,255,0.3);
             opacity: 0;
             pointer-events: none;
-            animation: e-sparkle 10s cubic-bezier(0.33, 0.0, 0.67, 1.0) infinite;
+            animation: e-sparkle 8s cubic-bezier(0.33, 0.0, 0.67, 1.0) infinite;
             animation-play-state: paused;
         }
         .shine-word.shine-active {
