@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# UPDATE: Replace with your actual domain once live
+Sitemap: https://signaturecarcare.co/sitemap.xml
