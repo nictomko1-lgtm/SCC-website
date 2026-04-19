@@ -494,6 +494,7 @@
             display: flex;
             gap: 16px;
             transition: transform 0.58s cubic-bezier(0.4,0,0.2,1);
+            will-change: transform;
         }
         .gallery-item {
             flex: 0 0 calc(33.333% - 10.667px);
@@ -1453,46 +1454,46 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                         <div class="gallery-label"><span class="gallery-label-dot"></span>In Action</div>
                     </div>
 
-                    <!-- 2: DSC_6008 (lazy) -->
+                    <!-- 2: DSC_6008 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Professional car detailing by Signature Car Care" data-bg="url('brand_assets/DSC_6008.JPEG')" style="background-position: center center; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Professional car detailing by Signature Car Care" style="background-image: url('brand_assets/DSC_6008.JPEG'); background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                         <div class="gallery-label"><span class="gallery-label-dot"></span>SCC X LA Fitness Event</div>
                     </div>
 
-                    <!-- 3: DSC_6083 (lazy) -->
+                    <!-- 3: DSC_6083 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Auto detailing service by Signature Car Care" data-bg="url('brand_assets/DSC_6083.JPEG')" style="background-position: center center; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Auto detailing service by Signature Car Care" style="background-image: url('brand_assets/DSC_6083.JPEG'); background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
-                    <!-- 4: 8.PNG (lazy) -->
+                    <!-- 4: 8.PNG -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Professionally detailed vehicle exterior by Signature Car Care" data-bg="url('brand_assets/8.PNG')" style="background-position: center center;"></div>
+                        <div class="gallery-img" role="img" aria-label="Professionally detailed vehicle exterior by Signature Car Care" style="background-image: url('brand_assets/8.PNG'); background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
-                    <!-- 5: DSC01280 (lazy) -->
+                    <!-- 5: DSC01280 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Mobile auto detailing service by Signature Car Care" data-bg="url('brand_assets/DSC01280.JPEG')" style="background-position: center center; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Mobile auto detailing service by Signature Car Care" style="background-image: url('brand_assets/DSC01280.JPEG'); background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
-                    <!-- 6: IMG_9688 (lazy) -->
+                    <!-- 6: IMG_9688 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Interior car detailing result by Signature Car Care" data-bg="url('brand_assets/IMG_9688.JPEG')" style="background-position: center center;"></div>
+                        <div class="gallery-img" role="img" aria-label="Interior car detailing result by Signature Car Care" style="background-image: url('brand_assets/IMG_9688.JPEG'); background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
-                    <!-- 7: DSC01327 (lazy) -->
+                    <!-- 7: DSC01327 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Exterior car detailing and paint protection by Signature Car Care" data-bg="url('brand_assets/DSC01327%20(1).jpg')" style="background-position: center center;"></div>
+                        <div class="gallery-img" role="img" aria-label="Exterior car detailing and paint protection by Signature Car Care" style="background-image: url('brand_assets/DSC01327%20(1).jpg'); background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
-                    <!-- 8: DSC01191 (lazy) -->
+                    <!-- 8: DSC01191 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Signature Car Care team performing professional mobile detailing" data-bg="url('brand_assets/DSC01191%20(1).jpg')" style="background-position: center 30%;"></div>
+                        <div class="gallery-img" role="img" aria-label="Signature Car Care team performing professional mobile detailing" style="background-image: url('brand_assets/DSC01191%20(1).jpg'); background-position: center 30%; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
@@ -1790,6 +1791,11 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 </footer>
 
 <script async src="https://www.instagram.com/embed.js"></script>
+<script>
+window.addEventListener('load', function() {
+    window.instgrm && window.instgrm.Embeds.process();
+});
+</script>
 
 <script>
 // Scroll reveal — IntersectionObserver (disabled on mobile for static rendering)
@@ -2322,10 +2328,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 // Lazy-load gallery images + video: only fetch assets when section enters viewport
 (function () {
     if (!('IntersectionObserver' in window)) {
-        // Fallback: load everything immediately
-        document.querySelectorAll('[data-bg]').forEach(function (el) {
-            el.style.backgroundImage = el.getAttribute('data-bg');
-        });
+        // Fallback: load video immediately
         var vid = document.getElementById('galleryVideo');
         if (vid) {
             vid.querySelectorAll('source[data-src]').forEach(function (s) {
@@ -2344,12 +2347,6 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
         entries.forEach(function (entry) {
             if (!entry.isIntersecting) return;
             obs.unobserve(entry.target);
-
-            // Load gallery background images
-            entry.target.querySelectorAll('[data-bg]').forEach(function (el) {
-                el.style.backgroundImage = el.getAttribute('data-bg');
-                el.removeAttribute('data-bg');
-            });
 
             // Load video
             var vid = document.getElementById('galleryVideo');
