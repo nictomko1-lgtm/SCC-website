@@ -41,6 +41,13 @@
     <link rel="dns-prefetch" href="//www.instagram.com">
     <link rel="dns-prefetch" href="//cdn.vercel-insights.com">
     <link rel="preload" as="image" href="brand_assets/DSC01254%20BLURRED.jpg">
+    <link rel="preload" as="image" href="brand_assets/DSC_6008.JPEG">
+    <link rel="preload" as="image" href="brand_assets/DSC_6083.JPEG">
+    <link rel="preload" as="image" href="brand_assets/8.PNG">
+    <link rel="preload" as="image" href="brand_assets/DSC01280.JPEG">
+    <link rel="preload" as="image" href="brand_assets/IMG_9688.JPEG">
+    <link rel="preload" as="image" href="brand_assets/DSC01327%20(1).jpg">
+    <link rel="preload" as="image" href="brand_assets/DSC01191%20(1).jpg">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=block" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=block" rel="stylesheet">
 
@@ -494,7 +501,6 @@
             display: flex;
             gap: 16px;
             transition: transform 0.58s cubic-bezier(0.4,0,0.2,1);
-            will-change: transform;
         }
         .gallery-item {
             flex: 0 0 calc(33.333% - 10.667px);
@@ -1445,10 +1451,10 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
             <div class="gallery-viewport" id="galleryViewport">
                 <div class="gallery-track" id="galleryTrack">
 
-                    <!-- 1: Video (lazy — src set by IntersectionObserver when section enters view) -->
+                    <!-- 1: Video -->
                     <div class="gallery-item gallery-item-video">
-                        <video class="gallery-video" id="galleryVideo" autoplay muted loop playsinline preload="none" style="filter: brightness(1.15);">
-                            <source data-src="brand_assets/Final-trimcut.mp4" type="video/mp4">
+                        <video class="gallery-video" id="galleryVideo" autoplay muted loop playsinline preload="auto" style="filter: brightness(1.15);">
+                            <source src="brand_assets/Final-trimcut.mp4" type="video/mp4">
                         </video>
                         <div class="gallery-overlay"></div>
                         <div class="gallery-label"><span class="gallery-label-dot"></span>In Action</div>
@@ -1469,7 +1475,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
                     <!-- 4: 8.PNG -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Professionally detailed vehicle exterior by Signature Car Care" style="background-image: url('brand_assets/8.PNG'); background-position: center center; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Professionally detailed vehicle exterior by Signature Car Care" style="background-image: url('brand_assets/8.PNG'); background-position: center center;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
@@ -1481,19 +1487,19 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
                     <!-- 6: IMG_9688 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Interior car detailing result by Signature Car Care" style="background-image: url('brand_assets/IMG_9688.JPEG'); background-position: center center; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Interior car detailing result by Signature Car Care" style="background-image: url('brand_assets/IMG_9688.JPEG'); background-position: center center;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
                     <!-- 7: DSC01327 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Exterior car detailing and paint protection by Signature Car Care" style="background-image: url('brand_assets/DSC01327%20(1).jpg'); background-position: center center; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Exterior car detailing and paint protection by Signature Car Care" style="background-image: url('brand_assets/DSC01327%20(1).jpg'); background-position: center center;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
                     <!-- 8: DSC01191 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Signature Car Care team performing professional mobile detailing" style="background-image: url('brand_assets/DSC01191%20(1).jpg'); background-position: center 30%; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Signature Car Care team performing professional mobile detailing" style="background-image: url('brand_assets/DSC01191%20(1).jpg'); background-position: center 30%;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
@@ -1790,11 +1796,22 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
     </div>
 </footer>
 
-<script async src="https://www.instagram.com/embed.js"></script>
 <script>
-window.addEventListener('load', function() {
-    window.instgrm && window.instgrm.Embeds.process();
-});
+(function() {
+    var s = document.createElement('script');
+    s.src = 'https://www.instagram.com/embed.js';
+    s.async = true;
+    s.onload = function() {
+        if (window.instgrm) window.instgrm.Embeds.process();
+    };
+    document.body.appendChild(s);
+    window.addEventListener('load', function() {
+        if (window.instgrm) window.instgrm.Embeds.process();
+        setTimeout(function() {
+            if (window.instgrm) window.instgrm.Embeds.process();
+        }, 2000);
+    });
+})();
 </script>
 
 <script>
@@ -2184,10 +2201,21 @@ window.addEventListener('load', function() {
         }
     }
 
+    function setGalleryVisible(visible) {
+        var v = visible ? '' : 'hidden';
+        document.querySelectorAll('.gallery-img, .gallery-overlay, #galleryVideo, .ig-clip').forEach(function(el) {
+            el.style.visibility = v;
+        });
+    }
+
     function scrollToTop() {
         var startY = window.scrollY;
         if (startY === 0 || animating) return;
         animating = true;
+
+        // Pause video during scroll to prevent decoding overhead causing frame drops
+        var vid = document.getElementById('galleryVideo');
+        if (vid) vid.pause();
 
         // Pre-load all content above current position before animating.
         // Both scrolls happen synchronously in the same JS tick — no repaint occurs
@@ -2223,6 +2251,7 @@ window.addEventListener('load', function() {
                     requestAnimationFrame(step);
                 } else {
                     setIgIframes(true);
+                    setGalleryVisible(false);
                     // Comet trail — wide glowing streak left behind as button rockets up
                     // Outer glow layer (wide, very blurred)
                     trail = document.createElement('div');
@@ -2270,6 +2299,8 @@ window.addEventListener('load', function() {
                     btn.style.pointerEvents = 'none';
                     animating = false;
                     setIgIframes(false);
+                    setGalleryVisible(true);
+                    if (vid) vid.play().catch(function() {});
                     if (trail && trail.parentNode) { trail.parentNode.removeChild(trail); trail = null; }
                     if (trailCore && trailCore.parentNode) { trailCore.parentNode.removeChild(trailCore); }
                 }
@@ -2325,45 +2356,11 @@ window.addEventListener('load', function() {
 </script>
 
 <script>
-// Lazy-load gallery images + video: only fetch assets when section enters viewport
+// Lazy-load Why Us background image when section enters viewport
 (function () {
-    if (!('IntersectionObserver' in window)) {
-        // Fallback: load video immediately
-        var vid = document.getElementById('galleryVideo');
-        if (vid) {
-            vid.querySelectorAll('source[data-src]').forEach(function (s) {
-                s.src = s.getAttribute('data-src');
-            });
-            vid.load();
-        }
-        return;
-    }
+    var whyUsSection = document.getElementById('why-us');
 
-    // Observe the gallery section — load everything inside it when it enters view
-    var gallerySection = document.getElementById('gallery');
-    var whyUsSection   = document.getElementById('why-us');
-
-    var galleryObserver = new IntersectionObserver(function (entries, obs) {
-        entries.forEach(function (entry) {
-            if (!entry.isIntersecting) return;
-            obs.unobserve(entry.target);
-
-            // Load video
-            var vid = document.getElementById('galleryVideo');
-            if (vid && !vid.src) {
-                vid.querySelectorAll('source[data-src]').forEach(function (s) {
-                    s.src = s.getAttribute('data-src');
-                    s.removeAttribute('data-src');
-                });
-                vid.load();
-                vid.play().catch(function () {});
-            }
-        });
-    }, { rootMargin: '200px 0px' }); // start loading 200px before it's in view
-
-    if (gallerySection) galleryObserver.observe(gallerySection);
-
-    // Why Us background image — separate observer
+    // Why Us background image observer
     var whyUsObserver = new IntersectionObserver(function (entries, obs) {
         entries.forEach(function (entry) {
             if (!entry.isIntersecting) return;
@@ -2376,6 +2373,16 @@ window.addEventListener('load', function() {
     }, { rootMargin: '200px 0px' });
 
     if (whyUsSection) whyUsObserver.observe(whyUsSection);
+
+    // Fallback: after window load, force any data-bg elements the observer missed
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.querySelectorAll('[data-bg]').forEach(function(el) {
+                el.style.backgroundImage = el.getAttribute('data-bg');
+                el.removeAttribute('data-bg');
+            });
+        }, 500);
+    });
 })();
 </script>
 </body>
