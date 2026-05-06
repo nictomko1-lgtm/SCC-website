@@ -1082,6 +1082,29 @@
             /* Push "Book This Package" button down on Complete package cards only (portrait mobile) */
             .card-premium .svc-book-bar { margin-top: 24px !important; }
 
+            /* Smooth out right-side vignette — more stops, exponential falloff, wider spread */
+            .hero-bg-photo::after {
+                background:
+                    linear-gradient(90deg,
+                        rgba(9,9,12,1.00)  0%,
+                        rgba(9,9,12,1.00) 30%,
+                        rgba(9,9,12,0.92) 36%,
+                        rgba(9,9,12,0.72) 43%,
+                        rgba(9,9,12,0.42) 51%,
+                        rgba(9,9,12,0.15) 59%,
+                        rgba(9,9,12,0.00) 68%),
+                    linear-gradient(270deg,
+                        rgba(9,9,12,0.85) 0%,
+                        rgba(9,9,12,0.74) 3%,
+                        rgba(9,9,12,0.60) 6%,
+                        rgba(9,9,12,0.44) 10%,
+                        rgba(9,9,12,0.28) 14%,
+                        rgba(9,9,12,0.14) 19%,
+                        rgba(9,9,12,0.05) 24%,
+                        rgba(9,9,12,0.00) 30%),
+                    linear-gradient(to top, rgba(9,9,12,0.80) 0%, transparent 32%);
+            }
+
         }
 
         /* ── MOBILE LANDSCAPE: kill hero exposure effects (wider than 640px so the portrait rule misses these) ── */
@@ -1267,8 +1290,9 @@
       "paymentAccepted": "Cash, Credit Card, Debit Card",
       "sameAs": [
         "https://www.instagram.com/signaturecar.care/",
-        "https://www.google.com/maps/place/Signature+Car+Care/@43.7836619,-79.3428036,9z"
+        "https://www.google.com/maps/place/Signature+Car+Care/@43.7827584,-80.0021532,9z/data=!3m1!4b1!4m6!3m5!1s0x6fd1d03e64eb5e43:0x210117ba19c82a65!8m2!3d43.7836619!4d-79.3428036!16s%2Fg%2F11m5ky168m"
       ],
+      "dateModified": "2026-05-06",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5",
@@ -1431,8 +1455,9 @@
       "email": "signatureccmail@gmail.com",
       "sameAs": [
         "https://www.instagram.com/signaturecar.care/",
-        "https://www.google.com/maps/place/Signature+Car+Care/@43.7836619,-79.3428036,9z"
+        "https://www.google.com/maps/place/Signature+Car+Care/@43.7827584,-80.0021532,9z/data=!3m1!4b1!4m6!3m5!1s0x6fd1d03e64eb5e43:0x210117ba19c82a65!8m2!3d43.7836619!4d-79.3428036!16s%2Fg%2F11m5ky168m"
       ],
+      "dateModified": "2026-05-06",
       "geo": {
         "@type": "GeoCoordinates",
         "latitude": 43.7836619,
@@ -1452,6 +1477,23 @@
         "areaServed": ["Burlington", "Oakville", "Milton", "Hamilton", "Mississauga"],
         "availableLanguage": "English"
       }
+    }
+    </script>
+
+    <!-- ===== SEO: WebSite Schema ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Signature Car Care",
+      "url": "https://signaturecarcare.co/",
+      "description": "Premium mobile auto detailing in Burlington, Oakville, Milton, Hamilton & Mississauga — we come to you.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Signature Car Care",
+        "url": "https://signaturecarcare.co/"
+      },
+      "inLanguage": "en-CA"
     }
     </script>
 
@@ -1496,7 +1538,7 @@
 <!-- ========== HERO ========== -->
 <section class="hero">
     <div class="hero-bg-photo">
-        <img src="brand_assets/DSC01254 BLURRED.jpg" alt="Team detailing a Porsche" draggable="false">
+        <img src="brand_assets/DSC01254 BLURRED.jpg" alt="Team detailing a Porsche" width="3150" height="4725" draggable="false">
         <div class="hero-car-shadow" id="heroCarShadow" aria-hidden="true"></div>
         <div class="hero-hood-flash" id="heroHoodFlash" aria-hidden="true"></div>
         <div class="hero-steam-glow" id="heroSteamGlow" aria-hidden="true"></div>
