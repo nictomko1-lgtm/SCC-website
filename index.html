@@ -2134,18 +2134,37 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
 <script>
 (function() {
+    var started = false;
+    function getFailedClips() {
+        return Array.prototype.filter.call(
+            document.querySelectorAll('.ig-clip'),
+            function(clip) { return !clip.querySelector('iframe'); }
+        );
+    }
+    function resetFailed() {
+        getFailedClips().forEach(function(clip) {
+            var bq = clip.querySelector('blockquote.instagram-media');
+            if (bq) bq.removeAttribute('data-instgrm-processed');
+        });
+    }
+    function tryProcess(attemptsLeft) {
+        if (attemptsLeft <= 0 || getFailedClips().length === 0) return;
+        resetFailed();
+        if (window.instgrm) window.instgrm.Embeds.process();
+        setTimeout(function() { tryProcess(attemptsLeft - 1); }, 2500);
+    }
     var s = document.createElement('script');
     s.src = 'https://www.instagram.com/embed.js';
     s.async = true;
     s.onload = function() {
-        if (window.instgrm) window.instgrm.Embeds.process();
+        started = true;
+        tryProcess(8);
     };
     document.body.appendChild(s);
     window.addEventListener('load', function() {
-        if (window.instgrm) window.instgrm.Embeds.process();
         setTimeout(function() {
-            if (window.instgrm) window.instgrm.Embeds.process();
-        }, 2000);
+            if (!started) tryProcess(8);
+        }, 800);
     });
 })();
 </script>
