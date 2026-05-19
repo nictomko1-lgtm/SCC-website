@@ -964,6 +964,7 @@
         .contact-form-img {
             flex: 0 0 40%;
             position: relative;
+            min-height: 100%;
         }
         .contact-form-img .corner { position: absolute; width: 18px; height: 18px; z-index: 2; }
         .contact-form-img .corner-tl { top: -1px; left: -1px; border-top: 2px solid #0FAFE8; border-left: 2px solid #0FAFE8; }
@@ -971,12 +972,14 @@
         .contact-form-img .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid #0FAFE8; border-left: 2px solid #0FAFE8; }
         .contact-form-img .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid #0FAFE8; border-right: 2px solid #0FAFE8; }
         .contact-form-img img {
-            display: block;
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: 20% 40%;
             border-radius: 4px;
+            display: block;
         }
         .cta-banner .corner,
         .contact-form-box .corner {
