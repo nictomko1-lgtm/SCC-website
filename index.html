@@ -17,7 +17,7 @@
       function gtagSendEvent(url) {
         var callback = function () {
           if (typeof url === 'string') {
-            window.location = url;
+            window.open(url, '_blank', 'noopener,noreferrer');
           }
         };
         gtag('event', 'ads_conversion_Book_appointment_1', {
@@ -884,7 +884,7 @@
             margin-top: 20px; padding: 16px 18px; border-radius: 12px;
             background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06);
         }
-        .addon-box-blue { background: rgba(15,175,232,0.07); border: 1px solid rgba(15,175,232,0.18); }
+        .addon-box-blue { background: rgba(15,175,232,0.07); border: 1px solid rgba(15,175,232,0.18); position: relative; }
         .addon-label {
             font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
             text-transform: uppercase; color: #0FAFE8; margin-bottom: 11px;
@@ -1012,15 +1012,16 @@
             display: block;
         }
         .cta-banner .corner,
-        .contact-form-box .corner {
+        .contact-form-box .corner,
+        .addon-box-blue .corner {
             position: absolute;
             width: 18px;
             height: 18px;
         }
-        .cta-banner .corner-tl, .contact-form-box .corner-tl { top: -1px; left: -1px; border-top: 2px solid #0FAFE8; border-left: 2px solid #0FAFE8; }
-        .cta-banner .corner-tr, .contact-form-box .corner-tr { top: -1px; right: -1px; border-top: 2px solid #0FAFE8; border-right: 2px solid #0FAFE8; }
-        .cta-banner .corner-bl, .contact-form-box .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid #0FAFE8; border-left: 2px solid #0FAFE8; }
-        .cta-banner .corner-br, .contact-form-box .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid #0FAFE8; border-right: 2px solid #0FAFE8; }
+        .cta-banner .corner-tl, .contact-form-box .corner-tl, .addon-box-blue .corner-tl { top: -1px; left: -1px; border-top: 2px solid #0FAFE8; border-left: 2px solid #0FAFE8; }
+        .cta-banner .corner-tr, .contact-form-box .corner-tr, .addon-box-blue .corner-tr { top: -1px; right: -1px; border-top: 2px solid #0FAFE8; border-right: 2px solid #0FAFE8; }
+        .cta-banner .corner-bl, .contact-form-box .corner-bl, .addon-box-blue .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid #0FAFE8; border-left: 2px solid #0FAFE8; }
+        .cta-banner .corner-br, .contact-form-box .corner-br, .addon-box-blue .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid #0FAFE8; border-right: 2px solid #0FAFE8; }
         .contact-form-label {
             font-family: 'Ephesis', cursive;
             font-size: clamp(22px, 3vw, 32px);
@@ -1938,6 +1939,10 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                     </div>
                     <div class="svc-hr"></div>
                     <div class="addon-box addon-box-blue" style="margin-top:0; margin-bottom:20px;">
+                        <span class="corner corner-tl"></span>
+                        <span class="corner corner-tr"></span>
+                        <span class="corner corner-bl"></span>
+                        <span class="corner corner-br"></span>
                         <p class="value-box">The smart starting point — everything you need for a thorough interior clean. <strong>Perfect for regular upkeep</strong> and keeping your car consistently fresh.</p>
                     </div>
                     <ul class="check-list">
@@ -1969,6 +1974,10 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                     </div>
                     <div class="svc-hr"></div>
                     <div class="addon-box addon-box-blue" style="margin-top:0; margin-bottom:20px;">
+                        <span class="corner corner-tl"></span>
+                        <span class="corner corner-tr"></span>
+                        <span class="corner corner-bl"></span>
+                        <span class="corner corner-br"></span>
                         <p class="value-box">Everything in our Basic Interior <strong>plus</strong> Steam Clean, Carpet Shampoo &amp; Leather Conditioning — all bundled. Built for a <strong>complete refresh</strong>, restoring your interior to like-new condition. <strong>Save $25</strong> vs adding all additional services manually.</p>
                     </div>
                     <ul class="check-list">
@@ -1995,6 +2004,10 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                     </div>
                     <div class="svc-hr"></div>
                     <div class="addon-box addon-box-blue" style="margin-top:0; margin-bottom:20px;">
+                        <span class="corner corner-tl"></span>
+                        <span class="corner corner-tr"></span>
+                        <span class="corner corner-bl"></span>
+                        <span class="corner corner-br"></span>
                         <p class="value-box">Your car's <strong>best regular maintenance</strong>. A professional hand wash, shining rims, and spotless glass.</p>
                     </div>
                     <ul class="check-list">
@@ -2025,6 +2038,10 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                     </div>
                     <div class="svc-hr"></div>
                     <div class="addon-box addon-box-blue" style="margin-top:0; margin-bottom:20px;">
+                        <span class="corner corner-tl"></span>
+                        <span class="corner corner-tr"></span>
+                        <span class="corner corner-bl"></span>
+                        <span class="corner corner-br"></span>
                         <p class="value-box">Everything in Basic Exterior <strong>plus</strong> Clay Bar, Iron-Decontamination &amp; Ceramic Spray Wax — all bundled. Leaving your car with Contaminant-free & Protected paint.<br><strong>Save $15</strong> vs adding all additional services manually.</p>
                     </div>
                     <ul class="check-list">
