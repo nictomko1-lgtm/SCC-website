@@ -15,15 +15,10 @@
     <!-- Google tag (gtag.js) event - delayed navigation helper -->
     <script>
       function gtagSendEvent(url) {
-        var callback = function () {
-          if (typeof url === 'string') {
-            window.open(url, '_blank', 'noopener,noreferrer');
-          }
-        };
-        gtag('event', 'ads_conversion_Book_appointment_1', {
-          'event_callback': callback,
-          'event_timeout': 2000,
-        });
+        gtag('event', 'ads_conversion_Book_appointment_1', {});
+        if (typeof url === 'string') {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
         return false;
       }
     </script>
