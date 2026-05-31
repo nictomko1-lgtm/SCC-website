@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
     <meta name="google-site-verification" content="z5tOndBjoYUTCVKo9jqJK5bWTeG7wGuvAOQDzo-57is" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN9CVTG61V"></script>
+    <!-- Google tag — deferred 2s post-load; dataLayer queues events until script arrives -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      window.gtag = function(){dataLayer.push(arguments);};
       gtag('js', new Date());
-
       gtag('config', 'G-FN9CVTG61V');
       gtag('config', 'AW-18173391180');
-    </script>
-    <!-- Google tag (gtag.js) event - delayed navigation helper -->
-    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FN9CVTG61V';
+          document.head.appendChild(s);
+        }, 2000);
+      });
       function gtagSendEvent(url) {
         gtag('event', 'ads_conversion_Book_appointment_1', {});
         if (typeof url === 'string') {
@@ -73,7 +76,7 @@
     <link rel="dns-prefetch" href="//www.instagram.com">
     <link rel="dns-prefetch" href="//cdn.vercel-insights.com">
     <link rel="preload" as="image"
-      imagesrcset="brand_assets/DSC01254-BLURRED-mobile.webp 480w, brand_assets/DSC01254-BLURRED.webp 2400w"
+      imagesrcset="brand_assets/DSC01254-BLURRED-1080.webp 1080w, brand_assets/DSC01254-BLURRED.webp 2400w"
       imagesizes="(max-width: 640px) 100vw, 70vw"
       fetchpriority="high">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -1719,7 +1722,7 @@
 <section class="hero" id="homepage">
     <div class="hero-bg-photo">
         <img src="brand_assets/DSC01254-BLURRED.webp"
-             srcset="brand_assets/DSC01254-BLURRED-mobile.webp 480w, brand_assets/DSC01254-BLURRED.webp 2400w"
+             srcset="brand_assets/DSC01254-BLURRED-1080.webp 1080w, brand_assets/DSC01254-BLURRED.webp 2400w"
              sizes="(max-width: 640px) 100vw, 70vw"
              alt="Team detailing a Porsche" width="3150" height="4725" draggable="false" fetchpriority="high">
         <div class="hero-car-shadow" id="heroCarShadow" aria-hidden="true"></div>
@@ -1821,51 +1824,51 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
                     <!-- 2: Before/After -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Before and after detailing by Signature Car Care" style="background-image: url('brand_assets/SCCBEFORENAFTER.webp'); background-position: center center; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Before and after detailing by Signature Car Care" data-bg="url('brand_assets/SCCBEFORENAFTER.webp')" style="background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                         <div class="gallery-label"><span class="gallery-label-dot"></span>Before & After</div>
                     </div>
 
                     <!-- 3: DSC_6008 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Professional car detailing by Signature Car Care" style="background-image: url('brand_assets/DSC_6008.webp'); background-position: center center; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Professional car detailing by Signature Car Care" data-bg="url('brand_assets/DSC_6008.webp')" style="background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                         <div class="gallery-label"><span class="gallery-label-dot"></span>SCC X LA Fitness Event</div>
                     </div>
 
                     <!-- 4: DSC_6083 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Auto detailing service by Signature Car Care" style="background-image: url('brand_assets/DSC_6083.webp'); background-position: center center; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Auto detailing service by Signature Car Care" data-bg="url('brand_assets/DSC_6083.webp')" style="background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
                     <!-- 5: 8.PNG -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Professionally detailed vehicle exterior by Signature Car Care" style="background-image: url('brand_assets/8.webp'); background-position: center center;"></div>
+                        <div class="gallery-img" role="img" aria-label="Professionally detailed vehicle exterior by Signature Car Care" data-bg="url('brand_assets/8.webp')" style="background-position: center center;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
                     <!-- 6: DSC01280 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Mobile auto detailing service by Signature Car Care" style="background-image: url('brand_assets/DSC01280.webp'); background-position: center center; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Mobile auto detailing service by Signature Car Care" data-bg="url('brand_assets/DSC01280.webp')" style="background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
                     <!-- 7: IMG_9688 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Interior car detailing result by Signature Car Care" style="background-image: url('brand_assets/IMG_9688.webp'); background-position: center center;"></div>
+                        <div class="gallery-img" role="img" aria-label="Interior car detailing result by Signature Car Care" data-bg="url('brand_assets/IMG_9688.webp')" style="background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
                     <!-- 8: DSC01327 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Exterior car detailing and paint protection by Signature Car Care" style="background-image: url('brand_assets/DSC01327.webp'); background-position: center center;"></div>
+                        <div class="gallery-img" role="img" aria-label="Exterior car detailing and paint protection by Signature Car Care" data-bg="url('brand_assets/DSC01327.webp')" style="background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
                     <!-- 9: DSC01191 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Signature Car Care team performing professional mobile detailing" style="background-image: url('brand_assets/DSC01191.webp'); background-position: center 30%;"></div>
+                        <div class="gallery-img" role="img" aria-label="Signature Car Care team performing professional mobile detailing" data-bg="url('brand_assets/DSC01191.webp')" style="background-position: center 30%; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
@@ -2958,31 +2961,30 @@ if (window.matchMedia('(max-width: 640px)').matches) {
 </script>
 
 <script>
-// Lazy-load Why Us background image when section enters viewport
+// Lazy-load background images when sections enter viewport
 (function () {
-    var whyUsSection = document.getElementById('why-us');
-
-    // Why Us background image observer
-    var whyUsObserver = new IntersectionObserver(function (entries, obs) {
-        entries.forEach(function (entry) {
-            if (!entry.isIntersecting) return;
-            obs.unobserve(entry.target);
-            entry.target.querySelectorAll('[data-bg]').forEach(function (el) {
-                el.style.backgroundImage = el.getAttribute('data-bg');
-                el.removeAttribute('data-bg');
+    function applyBg(el) {
+        el.style.backgroundImage = el.getAttribute('data-bg');
+        el.removeAttribute('data-bg');
+    }
+    function observeSection(section) {
+        if (!section) return;
+        var obs = new IntersectionObserver(function (entries, o) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                o.unobserve(entry.target);
+                entry.target.querySelectorAll('[data-bg]').forEach(applyBg);
             });
-        });
-    }, { rootMargin: '200px 0px' });
+        }, { rootMargin: '200px 0px' });
+        obs.observe(section);
+    }
+    observeSection(document.getElementById('gallery'));
+    observeSection(document.getElementById('why-us'));
 
-    if (whyUsSection) whyUsObserver.observe(whyUsSection);
-
-    // Fallback: after window load, force any data-bg elements the observer missed
+    // Fallback: after window load, flush any remaining data-bg elements
     window.addEventListener('load', function() {
         setTimeout(function() {
-            document.querySelectorAll('[data-bg]').forEach(function(el) {
-                el.style.backgroundImage = el.getAttribute('data-bg');
-                el.removeAttribute('data-bg');
-            });
+            document.querySelectorAll('[data-bg]').forEach(applyBg);
         }, 500);
     });
 })();
