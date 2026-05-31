@@ -66,14 +66,18 @@
     <meta name="twitter:title" content="Signature Car Care — Mobile Auto Detailing">
     <meta name="twitter:description" content="Professional-grade mobile auto detailing in the GTA — we come to you at home, work, or anywhere in between. Packages starting at $74.99. 50+ five-star reviews.">
     <meta name="twitter:image" content="https://signaturecarcare.co/brand_assets/DSC01254-BLURRED.jpg">
-    <link rel="stylesheet" href="tailwind.css">
+    <link rel="preload" href="tailwind.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="tailwind.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//www.instagram.com">
     <link rel="dns-prefetch" href="//cdn.vercel-insights.com">
-    <link rel="preload" as="image" href="brand_assets/DSC01254-BLURRED.webp" fetchpriority="high">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image"
+      imagesrcset="brand_assets/DSC01254-BLURRED-mobile.webp 480w, brand_assets/DSC01254-BLURRED.webp 2400w"
+      imagesizes="(max-width: 640px) 100vw, 70vw"
+      fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
 
     <!-- SVG filter to remove white from logo PNG -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -1714,7 +1718,10 @@
 <!-- ========== HERO ========== -->
 <section class="hero" id="homepage">
     <div class="hero-bg-photo">
-        <img src="brand_assets/DSC01254-BLURRED.webp" alt="Team detailing a Porsche" width="3150" height="4725" draggable="false" fetchpriority="high">
+        <img src="brand_assets/DSC01254-BLURRED.webp"
+             srcset="brand_assets/DSC01254-BLURRED-mobile.webp 480w, brand_assets/DSC01254-BLURRED.webp 2400w"
+             sizes="(max-width: 640px) 100vw, 70vw"
+             alt="Team detailing a Porsche" width="3150" height="4725" draggable="false" fetchpriority="high">
         <div class="hero-car-shadow" id="heroCarShadow" aria-hidden="true"></div>
         <div class="hero-hood-flash" id="heroHoodFlash" aria-hidden="true"></div>
         <div class="hero-steam-glow" id="heroSteamGlow" aria-hidden="true"></div>
