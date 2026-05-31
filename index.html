@@ -71,16 +71,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//www.instagram.com">
     <link rel="dns-prefetch" href="//cdn.vercel-insights.com">
-    <link rel="preload" as="image" href="brand_assets/DSC01254%20BLURRED.jpg">
-    <link rel="preload" as="image" href="brand_assets/DSC_6008.JPEG">
-    <link rel="preload" as="image" href="brand_assets/DSC_6083.JPEG">
-    <link rel="preload" as="image" href="brand_assets/8.PNG">
-    <link rel="preload" as="image" href="brand_assets/DSC01280.JPEG">
-    <link rel="preload" as="image" href="brand_assets/IMG_9688.JPEG">
-    <link rel="preload" as="image" href="brand_assets/DSC01327%20(1).jpg">
-    <link rel="preload" as="image" href="brand_assets/DSC01191%20(1).jpg">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=block" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=block" rel="stylesheet">
+    <link rel="preload" as="image" href="brand_assets/DSC01254-BLURRED.webp" fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- SVG filter to remove white from logo PNG -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -1721,7 +1714,7 @@
 <!-- ========== HERO ========== -->
 <section class="hero" id="homepage">
     <div class="hero-bg-photo">
-        <img src="brand_assets/DSC01254 BLURRED.jpg" alt="Team detailing a Porsche" width="3150" height="4725" draggable="false">
+        <img src="brand_assets/DSC01254-BLURRED.webp" alt="Team detailing a Porsche" width="3150" height="4725" draggable="false" fetchpriority="high">
         <div class="hero-car-shadow" id="heroCarShadow" aria-hidden="true"></div>
         <div class="hero-hood-flash" id="heroHoodFlash" aria-hidden="true"></div>
         <div class="hero-steam-glow" id="heroSteamGlow" aria-hidden="true"></div>
@@ -1812,7 +1805,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
                     <!-- 1: Video -->
                     <div class="gallery-item gallery-item-video">
-                        <video class="gallery-video" id="galleryVideo" autoplay muted loop playsinline preload="auto" style="filter: brightness(1.15);">
+                        <video class="gallery-video" id="galleryVideo" autoplay muted loop playsinline preload="none" style="filter: brightness(1.15);">
                             <source src="brand_assets/Final-trimcut.mp4" type="video/mp4">
                         </video>
                         <div class="gallery-overlay"></div>
@@ -1828,44 +1821,44 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
                     <!-- 3: DSC_6008 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Professional car detailing by Signature Car Care" style="background-image: url('brand_assets/DSC_6008.JPEG'); background-position: center center; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Professional car detailing by Signature Car Care" style="background-image: url('brand_assets/DSC_6008.webp'); background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                         <div class="gallery-label"><span class="gallery-label-dot"></span>SCC X LA Fitness Event</div>
                     </div>
 
                     <!-- 4: DSC_6083 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Auto detailing service by Signature Car Care" style="background-image: url('brand_assets/DSC_6083.JPEG'); background-position: center center; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Auto detailing service by Signature Car Care" style="background-image: url('brand_assets/DSC_6083.webp'); background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
                     <!-- 5: 8.PNG -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Professionally detailed vehicle exterior by Signature Car Care" style="background-image: url('brand_assets/8.PNG'); background-position: center center;"></div>
+                        <div class="gallery-img" role="img" aria-label="Professionally detailed vehicle exterior by Signature Car Care" style="background-image: url('brand_assets/8.webp'); background-position: center center;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
                     <!-- 6: DSC01280 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Mobile auto detailing service by Signature Car Care" style="background-image: url('brand_assets/DSC01280.JPEG'); background-position: center center; background-size: cover;"></div>
+                        <div class="gallery-img" role="img" aria-label="Mobile auto detailing service by Signature Car Care" style="background-image: url('brand_assets/DSC01280.webp'); background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
                     <!-- 7: IMG_9688 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Interior car detailing result by Signature Car Care" style="background-image: url('brand_assets/IMG_9688.JPEG'); background-position: center center;"></div>
+                        <div class="gallery-img" role="img" aria-label="Interior car detailing result by Signature Car Care" style="background-image: url('brand_assets/IMG_9688.webp'); background-position: center center;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
                     <!-- 8: DSC01327 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Exterior car detailing and paint protection by Signature Car Care" style="background-image: url('brand_assets/DSC01327%20(1).jpg'); background-position: center center;"></div>
+                        <div class="gallery-img" role="img" aria-label="Exterior car detailing and paint protection by Signature Car Care" style="background-image: url('brand_assets/DSC01327.webp'); background-position: center center;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
                     <!-- 9: DSC01191 -->
                     <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Signature Car Care team performing professional mobile detailing" style="background-image: url('brand_assets/DSC01191%20(1).jpg'); background-position: center 30%;"></div>
+                        <div class="gallery-img" role="img" aria-label="Signature Car Care team performing professional mobile detailing" style="background-image: url('brand_assets/DSC01191.webp'); background-position: center 30%;"></div>
                         <div class="gallery-overlay"></div>
                     </div>
 
@@ -2214,7 +2207,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                     box-shadow: 0 28px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(15,175,232,0.1), 0 0 48px rgba(15,175,232,0.05);">
             <div role="img" aria-label="Signature Car Care detailing a luxury vehicle — professional mobile service"
                  class="work-photo-img"
-                 data-bg="url('brand_assets/LBWRX7-88.jpg')"
+                 data-bg="url('brand_assets/LBWRX7-88.webp')"
                  style="position:absolute; inset:-4%;
                         background-size:cover; background-position:center 50%;"></div>
             <!-- Gradient overlay -->
@@ -2349,7 +2342,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
                 <span class="corner corner-tr"></span>
                 <span class="corner corner-bl"></span>
                 <span class="corner corner-br"></span>
-                <img src="brand_assets/IMG_6197.jpg" alt="Signature Car Care detail work">
+                <img src="brand_assets/IMG_6197.webp" alt="Signature Car Care detail work" loading="lazy" decoding="async">
             </div>
         </div>
     </div>
@@ -2374,6 +2367,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
 
 <script>
 (function() {
+    if (window.matchMedia('(max-width: 640px)').matches) return;
     var started = false;
     function getFailedClips() {
         return Array.prototype.filter.call(
