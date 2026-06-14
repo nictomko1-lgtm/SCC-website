@@ -840,6 +840,101 @@
         .review-cta-wrap { text-align: center; margin-top: 52px; }
         @media (max-width: 720px) { .reviews-row { flex-direction: column; align-items: center; } .review-card { width: 100%; max-width: 360px; } }
 
+        /* ======== MOBILE REVIEW INFINITE SLIDER ======== */
+        @keyframes mrc-scroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        .mrc-section {
+            display: block;
+            padding: 36px 0 32px;
+            background: #09090C;
+            overflow: hidden;
+        }
+        @media (min-width: 900px) { .mrc-section { display: none; } }
+        .mrc-eyebrow {
+            display: flex; align-items: center; gap: 10px; justify-content: center;
+            margin-bottom: 20px; padding: 0 20px;
+        }
+        .mrc-eyebrow-line { flex: 1; max-width: 40px; height: 1px; background: rgba(15,175,232,0.35); }
+        .mrc-eyebrow-text {
+            font-family: 'Ephesis', cursive; font-size: 18px;
+            color: #0FAFE8; letter-spacing: 0.02em;
+        }
+        .mrc-viewport {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        .mrc-marquee {
+            display: flex;
+            width: max-content;
+            animation: mrc-scroll 42s linear infinite;
+            will-change: transform;
+        }
+        .mrc-marquee .mrc-slide { margin-right: 14px; }
+        .mrc-slide {
+            width: 272px;
+            flex-shrink: 0;
+            background: #0D0D10;
+            border: none;
+            border-radius: 0;
+            padding: 20px 18px 22px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.45);
+            position: relative;
+        }
+        .mrc-slide .corner { position: absolute; width: 14px; height: 14px; }
+        .mrc-slide .corner-tl { top: 0; left: 0; border-top: 2px solid #0FAFE8; border-left: 2px solid #0FAFE8; }
+        .mrc-slide .corner-tr { top: 0; right: 0; border-top: 2px solid #0FAFE8; border-right: 2px solid #0FAFE8; }
+        .mrc-slide .corner-bl { bottom: 0; left: 0; border-bottom: 2px solid #0FAFE8; border-left: 2px solid #0FAFE8; }
+        .mrc-slide .corner-br { bottom: 0; right: 0; border-bottom: 2px solid #0FAFE8; border-right: 2px solid #0FAFE8; }
+        .mrc-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .mrc-avatar {
+            width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+            object-fit: cover;
+            border: 1.5px solid rgba(15,175,232,0.3);
+        }
+        .mrc-name-wrap { display: flex; flex-direction: column; gap: 2px; }
+        .mrc-name {
+            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px;
+            color: #fff; line-height: 1.2;
+        }
+        .mrc-source {
+            font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400;
+            color: rgba(255,255,255,0.4); letter-spacing: 0.04em;
+        }
+        .mrc-stars { display: flex; gap: 3px; margin-bottom: 10px; }
+        .mrc-stars svg { width: 14px; height: 14px; }
+        .mrc-text {
+            font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.65;
+            color: rgba(255,255,255,0.72); font-weight: 400;
+        }
+        .mrc-imgs {
+            display: flex; gap: 8px; margin-top: 12px;
+        }
+        .mrc-img {
+            flex: 1; aspect-ratio: 4/3; object-fit: cover;
+            border-radius: 0;
+            border: 1px solid rgba(15,175,232,0.15);
+            min-width: 0;
+        }
+        .mrc-img-wrap { flex: 1; position: relative; min-width: 0; }
+        .mrc-img-wrap img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; border: 1px solid rgba(15,175,232,0.15); }
+        .mrc-img-label {
+            position: absolute; bottom: 4px; left: 5px;
+            font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: #fff; background: rgba(0,0,0,0.6); padding: 2px 5px;
+        }
+        /* Progressive blur edges — matches ProgressiveBlur component concept */
+        .mrc-edge {
+            position: absolute; top: 0; height: 100%; width: 72px;
+            z-index: 2; pointer-events: none;
+        }
+        .mrc-edge-left  { left: 0;  background: linear-gradient(to right, #09090C 0%, transparent 100%); }
+        .mrc-edge-right { right: 0; background: linear-gradient(to left,  #09090C 0%, transparent 100%); }
+
         /* ======== SERVICES ======== */
         .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; }
         .svc-type {
@@ -1782,6 +1877,149 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
     });
 }
 </script>
+</section>
+
+<!-- ======== MOBILE REVIEW INFINITE SLIDER (mobile only, hidden ≥900px) ======== -->
+<section class="mrc-section" aria-label="Customer reviews">
+    <div class="mrc-eyebrow">
+        <div class="mrc-eyebrow-line"></div>
+        <span class="mrc-eyebrow-text">What our clients say</span>
+        <div class="mrc-eyebrow-line"></div>
+    </div>
+    <div class="mrc-viewport">
+        <div class="mrc-marquee" aria-hidden="true">
+
+            <!-- === Original set === -->
+            <div class="mrc-slide">
+                <div class="mrc-header">
+                    <img class="mrc-avatar" src="brand_assets/review3.png" alt="Lauren Cussons" />
+                    <div class="mrc-name-wrap">
+                        <span class="mrc-name">Lauren Cussons</span>
+                        <span class="mrc-source">Google Review · recently</span>
+                    </div>
+                </div>
+                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                <p class="mrc-text">"The car was extremely dirty, but by the time they were done it was looking like a brand new car inside and out!"</p>
+                <div class="mrc-imgs">
+                    <div class="mrc-img-wrap">
+                        <img src="brand_assets/dirtyreview.webp" alt="Before detailing" loading="lazy" />
+                        <span class="mrc-img-label">Before</span>
+                    </div>
+                    <div class="mrc-img-wrap">
+                        <img src="brand_assets/cleanreview.webp" alt="After detailing" loading="lazy" />
+                        <span class="mrc-img-label">After</span>
+                    </div>
+                </div>
+                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            </div>
+
+            <div class="mrc-slide">
+                <div class="mrc-header">
+                    <img class="mrc-avatar" src="brand_assets/review2.png" alt="Cate Banfield" />
+                    <div class="mrc-name-wrap">
+                        <span class="mrc-name">Cate Banfield</span>
+                        <span class="mrc-source">Google Review · 4 weeks ago</span>
+                    </div>
+                </div>
+                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                <p class="mrc-text">"Thanks again to the signature car care team - they always do a stellar job of detailing my car. Looks brand new every time."</p>
+                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            </div>
+
+            <div class="mrc-slide">
+                <div class="mrc-header">
+                    <img class="mrc-avatar" src="brand_assets/review4.png" alt="John Fitzgerald" />
+                    <div class="mrc-name-wrap">
+                        <span class="mrc-name">John Fitzgerald</span>
+                        <span class="mrc-source">Google Review · a year ago</span>
+                    </div>
+                </div>
+                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                <p class="mrc-text">"Signature Car Care detailed my car before I stored it for the Winter and they did an immaculate job. Amazing customer service, great to work with and top notch quality on the job. I would highly recommend them."</p>
+                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            </div>
+
+            <div class="mrc-slide">
+                <div class="mrc-header">
+                    <img class="mrc-avatar" src="brand_assets/review1.png" alt="Rawan Ghuneim" />
+                    <div class="mrc-name-wrap">
+                        <span class="mrc-name">Rawan Ghuneim</span>
+                        <span class="mrc-source">Google Review · a week ago</span>
+                    </div>
+                </div>
+                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                <p class="mrc-text">"Had a great detailing mobile experience to my Audi. They did a wonderful job cleaning it internally and externally and the service was great. Highly recommended."</p>
+                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            </div>
+
+            <!-- === Duplicate set for seamless loop === -->
+            <div class="mrc-slide">
+                <div class="mrc-header">
+                    <img class="mrc-avatar" src="brand_assets/review3.png" alt="Lauren Cussons" />
+                    <div class="mrc-name-wrap">
+                        <span class="mrc-name">Lauren Cussons</span>
+                        <span class="mrc-source">Google Review · recently</span>
+                    </div>
+                </div>
+                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                <p class="mrc-text">"The car was extremely dirty, but by the time they were done it was looking like a brand new car inside and out!"</p>
+                <div class="mrc-imgs">
+                    <div class="mrc-img-wrap">
+                        <img src="brand_assets/dirtyreview.webp" alt="Before detailing" loading="lazy" />
+                        <span class="mrc-img-label">Before</span>
+                    </div>
+                    <div class="mrc-img-wrap">
+                        <img src="brand_assets/cleanreview.webp" alt="After detailing" loading="lazy" />
+                        <span class="mrc-img-label">After</span>
+                    </div>
+                </div>
+                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            </div>
+
+            <div class="mrc-slide">
+                <div class="mrc-header">
+                    <img class="mrc-avatar" src="brand_assets/review2.png" alt="Cate Banfield" />
+                    <div class="mrc-name-wrap">
+                        <span class="mrc-name">Cate Banfield</span>
+                        <span class="mrc-source">Google Review · 4 weeks ago</span>
+                    </div>
+                </div>
+                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                <p class="mrc-text">"Thanks again to the signature car care team - they always do a stellar job of detailing my car. Looks brand new every time."</p>
+                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            </div>
+
+            <div class="mrc-slide">
+                <div class="mrc-header">
+                    <img class="mrc-avatar" src="brand_assets/review4.png" alt="John Fitzgerald" />
+                    <div class="mrc-name-wrap">
+                        <span class="mrc-name">John Fitzgerald</span>
+                        <span class="mrc-source">Google Review · a year ago</span>
+                    </div>
+                </div>
+                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                <p class="mrc-text">"Signature Car Care detailed my car before I stored it for the Winter and they did an immaculate job. Amazing customer service, great to work with and top notch quality on the job. I would highly recommend them."</p>
+                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            </div>
+
+            <div class="mrc-slide">
+                <div class="mrc-header">
+                    <img class="mrc-avatar" src="brand_assets/review1.png" alt="Rawan Ghuneim" />
+                    <div class="mrc-name-wrap">
+                        <span class="mrc-name">Rawan Ghuneim</span>
+                        <span class="mrc-source">Google Review · a week ago</span>
+                    </div>
+                </div>
+                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                <p class="mrc-text">"Had a great detailing mobile experience to my Audi. They did a wonderful job cleaning it internally and externally and the service was great. Highly recommended."</p>
+                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            </div>
+
+        </div>
+        <!-- Progressive blur edges -->
+        <div class="mrc-edge mrc-edge-left"></div>
+        <div class="mrc-edge mrc-edge-right"></div>
+    </div>
 </section>
 
 <div class="hr"></div>
@@ -3041,5 +3279,6 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     });
 })();
 </script>
+
 </body>
 </html>
