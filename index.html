@@ -111,19 +111,9 @@
         /* ======== NAV ======== */
         .nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-            padding-top: env(safe-area-inset-top);
-            background: rgba(9,9,12,0.78);
+            background: rgba(9,9,12,0.96);
             backdrop-filter: blur(28px) saturate(180%);
             border-bottom: 1px solid rgba(255,255,255,0.055);
-        }
-        /* Solid cap behind the notch/Dynamic Island — prevents see-through dead space */
-        .nav::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: env(safe-area-inset-top);
-            background: #09090C;
-            pointer-events: none;
         }
         .nav-inner {
             padding: 0 clamp(28px, 5vw, 80px);
@@ -889,6 +879,7 @@
         }
         .mrc-marquee {
             display: flex;
+            align-items: center;
             width: max-content;
             animation: mrc-scroll 30s linear infinite;
             will-change: transform;
@@ -897,7 +888,7 @@
         .mrc-slide {
             width: 272px;
             flex-shrink: 0;
-            background: #0D0D10;
+            background: #141418;
             border: none;
             border-radius: 0;
             padding: 20px 18px 22px;
@@ -930,6 +921,19 @@
         .mrc-text {
             font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.65;
             color: rgba(255,255,255,0.72); font-weight: 400;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: calc(1.65em * 5);
+        }
+        .mrc-text.mrc-text-full {
+            display: block;
+            -webkit-line-clamp: unset;
+            line-clamp: unset;
+            overflow: visible;
+            min-height: 0;
         }
         .mrc-imgs {
             display: flex; gap: 8px; margin-top: 12px;
@@ -1933,7 +1937,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                     </div>
                 </div>
                 <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
-                <p class="mrc-text">"The car was extremely dirty, but by the time they were done it was looking like a brand new car inside and out!"</p>
+                <p class="mrc-text mrc-text-full">"The car was extremely dirty, but by the time they were done it was looking like a brand new car inside and out!"</p>
                 <div class="mrc-imgs">
                     <div class="mrc-img-wrap">
                         <img src="brand_assets/dirtyreview.webp" alt="Before detailing" loading="lazy" />
@@ -1996,7 +2000,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                     </div>
                 </div>
                 <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
-                <p class="mrc-text">"The car was extremely dirty, but by the time they were done it was looking like a brand new car inside and out!"</p>
+                <p class="mrc-text mrc-text-full">"The car was extremely dirty, but by the time they were done it was looking like a brand new car inside and out!"</p>
                 <div class="mrc-imgs">
                     <div class="mrc-img-wrap">
                         <img src="brand_assets/dirtyreview.webp" alt="Before detailing" loading="lazy" />
@@ -2380,7 +2384,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                             <div class="mrc-name-wrap"><span class="mrc-name">Lauren Cussons</span><span class="mrc-source">Google Review · 1 week ago</span></div>
                         </div>
                         <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
-                        <p class="mrc-text">"The car was extremely dirty, but by the time they were done it was looking like a brand new car inside and out!"</p>
+                        <p class="mrc-text mrc-text-full">"The car was extremely dirty, but by the time they were done it was looking like a brand new car inside and out!"</p>
                         <div class="mrc-imgs"><div class="mrc-img-wrap"><img src="brand_assets/dirtyreview.webp" alt="Before detailing" loading="lazy" /><span class="mrc-img-label">Before</span></div><div class="mrc-img-wrap"><img src="brand_assets/cleanreview.webp" alt="After detailing" loading="lazy" /><span class="mrc-img-label">After</span></div></div>
                         <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
                     </div>
@@ -2453,7 +2457,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                             <div class="mrc-name-wrap"><span class="mrc-name">Lauren Cussons</span><span class="mrc-source">Google Review · 1 week ago</span></div>
                         </div>
                         <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
-                        <p class="mrc-text">"The car was extremely dirty, but by the time they were done it was looking like a brand new car inside and out!"</p>
+                        <p class="mrc-text mrc-text-full">"The car was extremely dirty, but by the time they were done it was looking like a brand new car inside and out!"</p>
                         <div class="mrc-imgs"><div class="mrc-img-wrap"><img src="brand_assets/dirtyreview.webp" alt="Before detailing" loading="lazy" /><span class="mrc-img-label">Before</span></div><div class="mrc-img-wrap"><img src="brand_assets/cleanreview.webp" alt="After detailing" loading="lazy" /><span class="mrc-img-label">After</span></div></div>
                         <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
                     </div>
