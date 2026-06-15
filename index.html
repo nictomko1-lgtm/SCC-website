@@ -856,7 +856,7 @@
         .review-cta-wrap { text-align: center; margin-top: 52px; }
         @media (max-width: 720px) { .reviews-row { flex-direction: column; align-items: center; } .review-card { width: 100%; max-width: 360px; } }
         .reviews-slider-desktop { display: none; margin-bottom: 52px; }
-        @media (min-width: 900px) { .reviews-slider-desktop { display: block; } .reviews-slider-desktop .mrc-marquee { animation-duration: 45s; } }
+        @media (min-width: 900px) { .reviews-slider-desktop { display: block; } }
         .mrc-avatar-ini {
             width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
             background: rgba(15,175,232,0.15);
@@ -896,7 +896,6 @@
             display: flex;
             align-items: center;
             width: max-content;
-            animation: mrc-scroll 30s linear infinite;
             will-change: transform;
         }
         .mrc-marquee .mrc-slide { margin-right: 14px; }
@@ -3408,6 +3407,42 @@ if (window.matchMedia('(max-width: 640px)').matches) {
             e.preventDefault();
         }
     }, { passive: false });
+})();
+</script>
+
+<script>
+// Seamless marquee — rAF-driven to avoid CSS animation restart flicker
+(function () {
+    var marquees = document.querySelectorAll('.mrc-marquee');
+    marquees.forEach(function (marquee) {
+        var isDesktop = !!marquee.closest('.reviews-slider-desktop');
+        // px per frame at 60fps: mobile ~0.52 (≈30s cycle), desktop ~0.38 (≈45s cycle)
+        var speed = isDesktop ? 0.38 : 0.52;
+        var pos = 0;
+        var half = 0;
+        var raf = null;
+
+        function measure() { half = marquee.scrollWidth / 2; }
+        measure();
+        window.addEventListener('resize', measure, { passive: true });
+
+        function tick() {
+            pos += speed;
+            if (pos >= half) pos -= half;
+            marquee.style.transform = 'translateX(-' + pos + 'px)';
+            raf = requestAnimationFrame(tick);
+        }
+
+        // Only run while visible — saves battery when scrolled away
+        var io = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) {
+                if (!raf) raf = requestAnimationFrame(tick);
+            } else {
+                if (raf) { cancelAnimationFrame(raf); raf = null; }
+            }
+        }, { threshold: 0 });
+        io.observe(marquee.closest('.mrc-viewport') || marquee);
+    });
 })();
 </script>
 
