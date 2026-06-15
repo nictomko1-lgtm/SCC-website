@@ -87,13 +87,14 @@
 
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overscroll-behavior: none; }
         body {
             font-family: 'Inter', sans-serif;
             background: #09090C;
             color: #fff;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            overscroll-behavior: none;
         }
 
         /* Grain overlay */
@@ -107,16 +108,6 @@
         /* ======== LAYOUT ======== */
         .wrap { max-width: 1600px; margin: 0 auto; padding: 0 clamp(28px, 5vw, 80px); }
         .hero .wrap { margin-left: 0; margin-right: 0; }
-
-        /* ======== SAFE-AREA CAP ======== */
-        #nav-safe-cap {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: env(safe-area-inset-top);
-            background: #09090C;
-            z-index: 300;
-            pointer-events: none;
-        }
 
         /* ======== NAV ======== */
         .nav {
@@ -1821,7 +1812,6 @@
 <div id="progress-bar"></div>
 
 <!-- ========== NAV ========== -->
-<div id="nav-safe-cap"></div>
 <nav class="nav">
     <div class="nav-inner">
         <a href="#homepage" class="nav-home" aria-label="Signature Car Care — Home">
@@ -3381,6 +3371,28 @@ if (window.matchMedia('(max-width: 640px)').matches) {
             btn.innerHTML = '<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
         });
     });
+})();
+</script>
+
+<script>
+/* Prevent any scroll position above 0 — stops iOS rubber-band from revealing
+   content above the fixed nav. Clamps on both scroll event and touch. */
+(function() {
+    var lastTouchY = 0;
+    document.addEventListener('touchstart', function(e) {
+        lastTouchY = e.touches[0].clientY;
+    }, { passive: true });
+    document.addEventListener('touchmove', function(e) {
+        var touchY = e.touches[0].clientY;
+        var atTop = (window.scrollY <= 0);
+        if (atTop && touchY > lastTouchY) {
+            e.preventDefault();
+        }
+        lastTouchY = touchY;
+    }, { passive: false });
+    document.addEventListener('scroll', function() {
+        if (window.scrollY < 0) window.scrollTo(0, 0);
+    }, { passive: true });
 })();
 </script>
 
