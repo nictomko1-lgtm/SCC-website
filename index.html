@@ -108,6 +108,16 @@
         .wrap { max-width: 1600px; margin: 0 auto; padding: 0 clamp(28px, 5vw, 80px); }
         .hero .wrap { margin-left: 0; margin-right: 0; }
 
+        /* ======== SAFE-AREA CAP ======== */
+        #nav-safe-cap {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: env(safe-area-inset-top);
+            background: #09090C;
+            z-index: 300;
+            pointer-events: none;
+        }
+
         /* ======== NAV ======== */
         .nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 200;
@@ -1811,6 +1821,7 @@
 <div id="progress-bar"></div>
 
 <!-- ========== NAV ========== -->
+<div id="nav-safe-cap"></div>
 <nav class="nav">
     <div class="nav-inner">
         <a href="#homepage" class="nav-home" aria-label="Signature Car Care — Home">
