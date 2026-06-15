@@ -111,11 +111,13 @@
 
         /* ======== NAV ======== */
         .nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 10000;
             background: rgba(9,9,12,0.78);
             backdrop-filter: blur(28px) saturate(180%);
             border-bottom: 1px solid rgba(255,255,255,0.055);
             padding-top: env(safe-area-inset-top);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
         .nav::before {
             content: '';
@@ -347,7 +349,7 @@
 
         /* ======== PROGRESS BAR ======== */
         #progress-bar {
-            position: fixed; top: 76px; left: 0; z-index: 999;
+            position: fixed; top: 76px; left: 0; z-index: 10001;
             height: 3px; width: 0%;
             background: linear-gradient(90deg, #0FAFE8 0%, #12B8F8 50%, #0FAFE8 100%);
             box-shadow: 0 0 8px rgba(15,175,232,0.6);
@@ -360,6 +362,8 @@
             position: relative; min-height: 100vh;
             display: flex; align-items: center; padding-top: 72px;
             overflow: hidden;
+            isolation: isolate;
+            z-index: 0;
         }
         /* Real photo background — img element for precise crop/position control */
         .hero-bg-photo {
