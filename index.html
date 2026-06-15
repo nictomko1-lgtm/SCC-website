@@ -350,10 +350,12 @@
         /* ======== PROGRESS BAR ======== */
         #progress-bar {
             position: fixed; top: 76px; left: 0; z-index: 10001;
-            height: 3px; width: 0%;
+            height: 3px; width: 100%;
             background: linear-gradient(90deg, #0FAFE8 0%, #12B8F8 50%, #0FAFE8 100%);
             box-shadow: 0 0 8px rgba(15,175,232,0.6);
-            transition: width 0.05s linear;
+            transform: scaleX(0);
+            transform-origin: left center;
+            will-change: transform;
             pointer-events: none;
         }
 
@@ -1312,6 +1314,12 @@
         }
 
         @media (max-width: 640px) {
+            /* Prevent iOS Safari backdrop-filter glitch that makes nav flicker/vanish on scroll */
+            .nav {
+                background: rgba(9, 9, 12, 0.97);
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
             .nav-links { display: none; }
             .hero-stats { flex-direction: column; gap: 0; }
             .stat + .stat { border-left: none; padding-left: 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.07); }
@@ -3081,7 +3089,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         var scrollTop = window.scrollY || document.documentElement.scrollTop;
         var docHeight = document.documentElement.scrollHeight - window.innerHeight;
         var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        bar.style.width = Math.min(pct, 100) + '%';
+        bar.style.transform = 'scaleX(' + Math.min(pct, 100) / 100 + ')';
     }
     window.addEventListener('scroll', updateProgress, { passive: true });
     updateProgress();
