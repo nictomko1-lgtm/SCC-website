@@ -1319,6 +1319,9 @@
                 background: rgba(9, 9, 12, 0.97);
                 backdrop-filter: none;
                 -webkit-backdrop-filter: none;
+                transition: none !important;
+                position: fixed !important;
+                top: 0 !important;
             }
             .nav-links { display: none; }
             .hero-stats { flex-direction: column; gap: 0; }
@@ -3405,6 +3408,24 @@ if (window.matchMedia('(max-width: 640px)').matches) {
             e.preventDefault();
         }
     }, { passive: false });
+})();
+</script>
+
+<script>
+// Always keep the nav pinned at the top — counteracts any browser viewport shift or compositing glitch
+(function () {
+    var nav = document.querySelector('.nav');
+    if (!nav) return;
+    nav.style.top = '0';
+    nav.style.transform = 'translateZ(0)';
+    nav.style.willChange = 'transform';
+    window.addEventListener('scroll', function () {
+        nav.style.top = '0';
+        nav.style.transform = 'translateZ(0)';
+    }, { passive: true });
+    window.addEventListener('resize', function () {
+        nav.style.top = '0';
+    }, { passive: true });
 })();
 </script>
 
