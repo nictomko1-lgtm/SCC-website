@@ -117,6 +117,13 @@
             border-bottom: 1px solid rgba(255,255,255,0.055);
             padding-top: env(safe-area-inset-top);
         }
+        .nav::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: env(safe-area-inset-top);
+            background: #09090C;
+        }
         .nav-inner {
             padding: 0 clamp(28px, 5vw, 80px);
             height: 76px; display: flex; align-items: center; justify-content: space-between;
