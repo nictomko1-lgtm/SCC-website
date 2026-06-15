@@ -3416,8 +3416,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     var marquees = document.querySelectorAll('.mrc-marquee');
     marquees.forEach(function (marquee) {
         var isDesktop = !!marquee.closest('.reviews-slider-desktop');
-        // px per frame at 60fps: mobile ~0.28 (≈55s cycle), desktop ~0.22 (≈75s cycle)
-        var speed = isDesktop ? 0.22 : 0.28;
+        // px per frame at 60fps: mobile ~0.52 (≈30s cycle), desktop ~0.22 (≈75s cycle)
+        var speed = isDesktop ? 0.22 : 0.52;
         var pos = 0;
         var half = 0;
         var raf = null;
