@@ -15,7 +15,7 @@
       }
     </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Signature Car Care — Mobile Auto Detailing</title>
     <script defer src="/_vercel/insights/script.js"></script>
 
@@ -67,7 +67,7 @@
     <link rel="preload" as="image"
       href="brand_assets/DSC01254-BLURRED-690.webp"
       imagesrcset="brand_assets/DSC01254-BLURRED-690.webp 690w, brand_assets/DSC01254-BLURRED.webp 2400w"
-      imagesizes="(max-width: 640px) 230px, 70vw"
+      imagesizes="(max-width: 640px) 100vw, 100vw"
       fetchpriority="high">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap">
 
@@ -111,6 +111,7 @@
         /* ======== NAV ======== */
         .nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            padding-top: env(safe-area-inset-top);
             background: rgba(9,9,12,0.78);
             backdrop-filter: blur(28px) saturate(180%);
             border-bottom: 1px solid rgba(255,255,255,0.055);
@@ -790,7 +791,8 @@
             box-shadow: none !important;
         }
         @media (max-width: 900px) {
-            .ig-grid { grid-template-columns: 1fr; }
+            .ig-grid { display: none !important; }
+            .ig-divider { display: none !important; }
             .photo-strip { grid-template-columns: 1fr; }
         }
 
@@ -869,7 +871,7 @@
         .mrc-marquee {
             display: flex;
             width: max-content;
-            animation: mrc-scroll 42s linear infinite;
+            animation: mrc-scroll 37s linear infinite;
             will-change: transform;
         }
         .mrc-marquee .mrc-slide { margin-right: 14px; }
@@ -1305,7 +1307,7 @@
             #cursor-glow { display: none !important; }
             #progress-bar { display: none !important; }
             #scroll-top-btn { display: none !important; }
-            .card-lift { transition: none !important; }
+            .card-lift:not(.reveal):not(.revealed) { transition: none !important; }
             .card-lift:hover, .svc-card-link:hover .card-lift { transform: none !important; box-shadow: none !important; }
             .gallery-item:hover { box-shadow: none !important; }
             .gallery-item:hover .gallery-img { transform: none !important; }
@@ -1652,7 +1654,7 @@
             "itemOffered": {
               "@type": "Service",
               "name": "Basic Interior Detailing",
-              "description": "Deep vacuum, total surface wipe down, window & glass cleaning. Steam clean, carpet shampoo, and leather conditioning available as add-ons."
+              "description": "Deep vacuum, total surface cleanse, window & glass cleaning. Steam clean, carpet shampoo, and leather conditioning available as add-ons."
             },
             "priceSpecification": {
               "@type": "PriceSpecification",
@@ -1665,7 +1667,7 @@
             "itemOffered": {
               "@type": "Service",
               "name": "Complete Interior Detailing",
-              "description": "Full interior detail including deep vacuum, surface wipe, glass cleaning, steam clean, carpet shampoo & leather conditioning — all bundled."
+              "description": "Full interior detail including deep vacuum, total surface cleanse, glass cleaning, steam clean, carpet shampoo & leather conditioning — all bundled."
             },
             "priceSpecification": {
               "@type": "PriceSpecification",
@@ -1811,7 +1813,7 @@
     <div class="hero-bg-photo">
         <img src="brand_assets/DSC01254-BLURRED.webp"
              srcset="brand_assets/DSC01254-BLURRED-690.webp 690w, brand_assets/DSC01254-BLURRED.webp 2400w"
-             sizes="(max-width: 640px) 230px, 70vw"
+             sizes="100vw"
              alt="Team detailing a Porsche" width="3150" height="4725" draggable="false" fetchpriority="high">
         <div class="hero-car-shadow" id="heroCarShadow" aria-hidden="true"></div>
         <div class="hero-hood-flash" id="heroHoodFlash" aria-hidden="true"></div>
@@ -1892,10 +1894,23 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
             <!-- === Original set === -->
             <div class="mrc-slide">
                 <div class="mrc-header">
+                    <img class="mrc-avatar" src="brand_assets/review1.png" alt="Rawan Ghuneim" />
+                    <div class="mrc-name-wrap">
+                        <span class="mrc-name">Rawan Ghuneim</span>
+                        <span class="mrc-source">Google Review · 1 week ago</span>
+                    </div>
+                </div>
+                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                <p class="mrc-text">"Had a great mobile detail experience for my Audi. They did a wonderful job cleaning it internally and externally and the service was great. Highly recommended."</p>
+                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            </div>
+
+            <div class="mrc-slide">
+                <div class="mrc-header">
                     <img class="mrc-avatar" src="brand_assets/review3.png" alt="Lauren Cussons" />
                     <div class="mrc-name-wrap">
                         <span class="mrc-name">Lauren Cussons</span>
-                        <span class="mrc-source">Google Review · recently</span>
+                        <span class="mrc-source">Google Review · 1 week ago</span>
                     </div>
                 </div>
                 <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
@@ -1915,19 +1930,6 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
             <div class="mrc-slide">
                 <div class="mrc-header">
-                    <img class="mrc-avatar" src="brand_assets/review2.png" alt="Cate Banfield" />
-                    <div class="mrc-name-wrap">
-                        <span class="mrc-name">Cate Banfield</span>
-                        <span class="mrc-source">Google Review · 4 weeks ago</span>
-                    </div>
-                </div>
-                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
-                <p class="mrc-text">"Thanks again to the signature car care team - they always do a stellar job of detailing my car. Looks brand new every time."</p>
-                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
-            </div>
-
-            <div class="mrc-slide">
-                <div class="mrc-header">
                     <img class="mrc-avatar" src="brand_assets/review4.png" alt="John Fitzgerald" />
                     <div class="mrc-name-wrap">
                         <span class="mrc-name">John Fitzgerald</span>
@@ -1941,24 +1943,37 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
             <div class="mrc-slide">
                 <div class="mrc-header">
-                    <img class="mrc-avatar" src="brand_assets/review1.png" alt="Rawan Ghuneim" />
+                    <img class="mrc-avatar" src="brand_assets/review2.png" alt="Cate Banfield" />
                     <div class="mrc-name-wrap">
-                        <span class="mrc-name">Rawan Ghuneim</span>
-                        <span class="mrc-source">Google Review · a week ago</span>
+                        <span class="mrc-name">Cate Banfield</span>
+                        <span class="mrc-source">Google Review · 4 weeks ago</span>
                     </div>
                 </div>
                 <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
-                <p class="mrc-text">"Had a great detailing mobile experience to my Audi. They did a wonderful job cleaning it internally and externally and the service was great. Highly recommended."</p>
+                <p class="mrc-text">"Thanks again to the Signature Car Care team - they always do a stellar job of detailing my car. Looks brand new every time."</p>
                 <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
             </div>
 
             <!-- === Duplicate set for seamless loop === -->
             <div class="mrc-slide">
                 <div class="mrc-header">
+                    <img class="mrc-avatar" src="brand_assets/review1.png" alt="Rawan Ghuneim" />
+                    <div class="mrc-name-wrap">
+                        <span class="mrc-name">Rawan Ghuneim</span>
+                        <span class="mrc-source">Google Review · 1 week ago</span>
+                    </div>
+                </div>
+                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                <p class="mrc-text">"Had a great mobile detail experience for my Audi. They did a wonderful job cleaning it internally and externally and the service was great. Highly recommended."</p>
+                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            </div>
+
+            <div class="mrc-slide">
+                <div class="mrc-header">
                     <img class="mrc-avatar" src="brand_assets/review3.png" alt="Lauren Cussons" />
                     <div class="mrc-name-wrap">
                         <span class="mrc-name">Lauren Cussons</span>
-                        <span class="mrc-source">Google Review · recently</span>
+                        <span class="mrc-source">Google Review · 1 week ago</span>
                     </div>
                 </div>
                 <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
@@ -1978,19 +1993,6 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
             <div class="mrc-slide">
                 <div class="mrc-header">
-                    <img class="mrc-avatar" src="brand_assets/review2.png" alt="Cate Banfield" />
-                    <div class="mrc-name-wrap">
-                        <span class="mrc-name">Cate Banfield</span>
-                        <span class="mrc-source">Google Review · 4 weeks ago</span>
-                    </div>
-                </div>
-                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
-                <p class="mrc-text">"Thanks again to the signature car care team - they always do a stellar job of detailing my car. Looks brand new every time."</p>
-                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
-            </div>
-
-            <div class="mrc-slide">
-                <div class="mrc-header">
                     <img class="mrc-avatar" src="brand_assets/review4.png" alt="John Fitzgerald" />
                     <div class="mrc-name-wrap">
                         <span class="mrc-name">John Fitzgerald</span>
@@ -2004,14 +2006,14 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
             <div class="mrc-slide">
                 <div class="mrc-header">
-                    <img class="mrc-avatar" src="brand_assets/review1.png" alt="Rawan Ghuneim" />
+                    <img class="mrc-avatar" src="brand_assets/review2.png" alt="Cate Banfield" />
                     <div class="mrc-name-wrap">
-                        <span class="mrc-name">Rawan Ghuneim</span>
-                        <span class="mrc-source">Google Review · a week ago</span>
+                        <span class="mrc-name">Cate Banfield</span>
+                        <span class="mrc-source">Google Review · 4 weeks ago</span>
                     </div>
                 </div>
                 <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
-                <p class="mrc-text">"Had a great detailing mobile experience to my Audi. They did a wonderful job cleaning it internally and externally and the service was great. Highly recommended."</p>
+                <p class="mrc-text">"Thanks again to the Signature Car Care team - they always do a stellar job of detailing my car. Looks brand new every time."</p>
                 <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
             </div>
 
@@ -2187,7 +2189,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                     </div>
                     <ul class="check-list">
                         <li><span class="chk"><svg width="10" height="10" fill="none" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#0FAFE8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Deep Vacuum</li>
-                        <li><span class="chk"><svg width="10" height="10" fill="none" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#0FAFE8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Total Surface Wipe Down</li>
+                        <li><span class="chk"><svg width="10" height="10" fill="none" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#0FAFE8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Total Surface Cleanse</li>
                         <li><span class="chk"><svg width="10" height="10" fill="none" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#0FAFE8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Window & Glass Cleaning</li>
                     </ul>
                     <div class="addon-box">
@@ -2222,11 +2224,11 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                         <span class="corner corner-tr"></span>
                         <span class="corner corner-bl"></span>
                         <span class="corner corner-br"></span>
-                        <p class="value-box">Everything in our Basic Interior <strong>plus</strong> Steam Clean, Carpet Shampoo &amp; Leather Conditioning — all bundled. Built for a <strong>complete refresh</strong>, restoring your interior to like-new condition. <strong>Save $25</strong> vs adding all additional services manually.</p>
+                        <p class="value-box">Built for a <strong>complete reset</strong>, restoring your interior to like-new condition. Everything in our Basic Interior <strong>plus</strong> Steam Clean, Carpet Shampoo &amp; Leather Conditioning — all bundled. <strong>Save $25</strong> vs adding all additional services manually.</p>
                     </div>
                     <ul class="check-list">
                         <li><span class="chk"><svg width="10" height="10" fill="none" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#0FAFE8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Deep Vacuum</li>
-                        <li><span class="chk"><svg width="10" height="10" fill="none" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#0FAFE8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Total Surface Wipe Down</li>
+                        <li><span class="chk"><svg width="10" height="10" fill="none" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#0FAFE8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Total Surface Cleanse</li>
                         <li><span class="chk"><svg width="10" height="10" fill="none" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#0FAFE8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Window & Glass Cleaning</li>
                         <li><span class="chk"><svg width="10" height="10" fill="none" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#0FAFE8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Steam Clean</li>
                         <li><span class="chk"><svg width="10" height="10" fill="none" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#0FAFE8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Carpet Shampoo</li>
