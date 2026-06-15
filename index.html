@@ -87,14 +87,13 @@
 
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; overscroll-behavior: none; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             background: #09090C;
             color: #fff;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            overscroll-behavior: none;
         }
 
         /* Grain overlay */
@@ -1329,7 +1328,6 @@
             .hero-steam-glow { opacity: 0 !important; }
             .hero-hood-flash { animation: none !important; opacity: 0 !important; }
             #cursor-glow { display: none !important; }
-            #progress-bar { display: none !important; }
             #scroll-top-btn { display: none !important; }
             .card-lift:not(.reveal):not(.revealed) { transition: none !important; }
             .card-lift:hover, .svc-card-link:hover .card-lift { transform: none !important; box-shadow: none !important; }
@@ -3374,27 +3372,6 @@ if (window.matchMedia('(max-width: 640px)').matches) {
 })();
 </script>
 
-<script>
-/* Prevent any scroll position above 0 — stops iOS rubber-band from revealing
-   content above the fixed nav. Clamps on both scroll event and touch. */
-(function() {
-    var lastTouchY = 0;
-    document.addEventListener('touchstart', function(e) {
-        lastTouchY = e.touches[0].clientY;
-    }, { passive: true });
-    document.addEventListener('touchmove', function(e) {
-        var touchY = e.touches[0].clientY;
-        var atTop = (window.scrollY <= 0);
-        if (atTop && touchY > lastTouchY) {
-            e.preventDefault();
-        }
-        lastTouchY = touchY;
-    }, { passive: false });
-    document.addEventListener('scroll', function() {
-        if (window.scrollY < 0) window.scrollTo(0, 0);
-    }, { passive: true });
-})();
-</script>
 
 </body>
 </html>
