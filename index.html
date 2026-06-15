@@ -3380,6 +3380,21 @@ if (window.matchMedia('(max-width: 640px)').matches) {
 })();
 </script>
 
+<script>
+(function () {
+    var startY = 0;
+    document.addEventListener('touchstart', function (e) {
+        startY = e.touches[0].pageY;
+    }, { passive: true });
+    document.addEventListener('touchmove', function (e) {
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var currentY = e.touches[0].pageY;
+        if (scrollTop <= 0 && currentY > startY) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+})();
+</script>
 
 </body>
 </html>
