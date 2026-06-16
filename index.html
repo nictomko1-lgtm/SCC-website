@@ -533,7 +533,7 @@
         .bna-after { will-change: clip-path; }
         .bna-divider {
             position: absolute; top: 0; bottom: 0; left: 50%;
-            width: 5px;
+            width: 7.5px;
             background: linear-gradient(to right, #0FAFE8 0%, #000 25%, #000 75%, #0FAFE8 100%);
             transform: translateX(-50%); z-index: 6; pointer-events: none;
             will-change: left;
@@ -542,7 +542,7 @@
         .bna-handle {
             position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 34px; height: 34px; border-radius: 50%;
+            width: 46px; height: 46px; border-radius: 50%;
             background: #09090C;
             border: 1.5px solid rgba(15,175,232,0.35);
             display: flex; align-items: center; justify-content: center; gap: 2px;
@@ -3193,7 +3193,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     });
     document.addEventListener('mouseup', function() { dragging = false; });
 
-    // Touch — stop propagation so gallery swipe doesn't fire
+    // Touch — prevent page scroll while dragging horizontally
     slider.addEventListener('touchstart', function(e) {
         dragging = true;
         setPos(getPos(e.touches[0].clientX));
@@ -3202,8 +3202,9 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     slider.addEventListener('touchmove', function(e) {
         if (!dragging) return;
         setPos(getPos(e.touches[0].clientX));
+        e.preventDefault();
         e.stopPropagation();
-    }, { passive: true });
+    }, { passive: false });
     slider.addEventListener('touchend', function(e) {
         dragging = false;
         e.stopPropagation();
