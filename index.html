@@ -861,7 +861,7 @@
         .review-social-proof-inner { display: inline-flex; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: 9999px; padding: 4px 12px 4px 5px; box-shadow: 0 2px 12px rgba(0,0,0,0.25); }
         .review-social-proof-avatars { display: flex; margin-right: 10px; }
         .review-social-proof-avatars img { width: 32px; height: 32px; border-radius: 9999px; object-fit: cover; margin-left: -8px; box-shadow: 0 0 0 2px #0d0d0d; }
-        .review-social-proof-avatars img:first-child { margin-left: 0; }
+        .review-social-proof-avatars picture:first-child img { margin-left: 0; }
         .review-social-proof-text { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.3; }
         .review-social-proof-text strong { color: #fff; font-weight: 600; }
         @media (min-width: 900px) { .review-social-proof { display: none; } }
@@ -1203,6 +1203,7 @@
         @media (max-width: 768px) {
             .contact-form-img { display: none; }
             .contact-form-box { flex: 0 0 90%; }
+            .hide-mobile-and { display: none; }
         }
 
         /* ======== FOOTER ======== */
@@ -1335,8 +1336,11 @@
                 top: 0 !important;
             }
             .nav-links { display: none; }
-            .hero-stats { flex-direction: column; gap: 0; margin-top: 20px !important; padding-top: 20px !important; }
-            .stat + .stat { border-left: none; padding-left: 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.07); }
+            .hero-stats { flex-direction: column; gap: 0; margin-top: 20px !important; padding-top: 20px !important; border-top: none !important; }
+            .stat + .stat { border-left: none; padding-left: 0; padding-top: 18px; border-top: none; position: relative; }
+            .stat + .stat::before { content: ''; position: absolute; top: 0; left: 0; width: 50%; height: 1px; background: linear-gradient(to right, rgba(255,255,255,0.07), transparent); }
+            .hero-stats .stat:last-child { padding-bottom: 18px; position: relative; }
+            .hero-stats .stat:last-child::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50%; height: 1px; background: linear-gradient(to right, rgba(255,255,255,0.07), transparent); }
             .hero-content { padding-top: 20px !important; padding-bottom: 36px !important; }
             .cta-banner { padding: 52px 24px; }
             .footer-inner { flex-direction: column; align-items: flex-start; }
@@ -1389,6 +1393,8 @@
 
             /* Hide description text on mobile */
             .hero-sub { display: none !important; }
+            .hero-script { display: none !important; }
+            .hero-rule { margin-top: 28px !important; }
 
             /* Let hero shrink to content height on mobile (no forced 100vh) */
             .hero { min-height: 0 !important; height: auto !important; }
@@ -1397,11 +1403,11 @@
                so no seam is visible. Exposes image x=0–74%: sprayer + full Porsche front. */
             .hero-bg-photo img {
                 left: 100px !important;
-                top: 0 !important;
-                height: 100% !important;
+                top: -100px !important;
+                height: calc(100% + 100px) !important;
                 width: 100% !important;
                 object-fit: cover !important;
-                object-position: 0% 50% !important;
+                object-position: 0% 0% !important;
                 transform: none !important;
             }
 
@@ -2421,7 +2427,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                 <div class="eyebrow-line r"></div>
             </div>
             <h2 class="section-title">THE REVIEWS</h2>
-            <p class="section-sub">50+ five-star reviews from real customers across Burlington, Oakville, Milton, and Hamilton.</p>
+            <p class="section-sub">50+ five-star reviews from real customers across Burlington, Oakville, Milton, <span class="hide-mobile-and">and </span>Hamilton.</p>
         </div>
 
         <!-- Desktop infinite slider (hidden on mobile — mrc-section handles that) -->
@@ -2583,11 +2589,11 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
         <div class="review-social-proof">
             <div class="review-social-proof-inner">
                 <div class="review-social-proof-avatars">
-                    <img src="brand_assets/review1.png" alt="Rawan Ghuneim" />
-                    <img src="brand_assets/review2.png" alt="Cate Banfield" />
-                    <img src="brand_assets/review3.png" alt="Lauren Cussons" />
-                    <img src="brand_assets/review4.png" alt="John Fitzgerald" />
-                    <img src="brand_assets/review5.png" alt="Steve, Mini Giants Inc." />
+                    <picture><source srcset="brand_assets/review1-32.webp 1x, brand_assets/review1-64.webp 2x" type="image/webp"><img src="brand_assets/review1-32.png" srcset="brand_assets/review1-32.png 1x, brand_assets/review1-64.png 2x" alt="Rawan Ghuneim" width="32" height="32" loading="lazy" decoding="async" /></picture>
+                    <picture><source srcset="brand_assets/review2-32.webp 1x, brand_assets/review2-64.webp 2x" type="image/webp"><img src="brand_assets/review2-32.png" srcset="brand_assets/review2-32.png 1x, brand_assets/review2-64.png 2x" alt="Cate Banfield" width="32" height="32" loading="lazy" decoding="async" /></picture>
+                    <picture><source srcset="brand_assets/review3-32.webp 1x, brand_assets/review3-64.webp 2x" type="image/webp"><img src="brand_assets/review3-32.png" srcset="brand_assets/review3-32.png 1x, brand_assets/review3-64.png 2x" alt="Lauren Cussons" width="32" height="32" loading="lazy" decoding="async" /></picture>
+                    <picture><source srcset="brand_assets/review4-32.webp 1x, brand_assets/review4-64.webp 2x" type="image/webp"><img src="brand_assets/review4-32.png" srcset="brand_assets/review4-32.png 1x, brand_assets/review4-64.png 2x" alt="John Fitzgerald" width="32" height="32" loading="lazy" decoding="async" /></picture>
+                    <picture><source srcset="brand_assets/review5-32.webp 1x, brand_assets/review5-64.webp 2x" type="image/webp"><img src="brand_assets/review5-32.png" srcset="brand_assets/review5-32.png 1x, brand_assets/review5-64.png 2x" alt="Steve, Mini Giants Inc." width="32" height="32" loading="lazy" decoding="async" /></picture>
                 </div>
                 <p class="review-social-proof-text"><strong>50+</strong> five-star reviews</p>
             </div>
@@ -3467,8 +3473,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     var marquees = document.querySelectorAll('.mrc-marquee');
     marquees.forEach(function (marquee) {
         var isDesktop = !!marquee.closest('.reviews-slider-desktop');
-        // px per frame at 60fps: mobile ~0.62 (≈25s cycle), desktop ~0.22 (≈75s cycle)
-        var speed = isDesktop ? 0.22 : 0.62;
+        // px per frame at 60fps: mobile ~1.1 (≈14s cycle), desktop ~0.22 (≈75s cycle)
+        var speed = isDesktop ? 0.22 : 1.1;
         var pos = 0;
         var half = 0;
         var raf = null;
