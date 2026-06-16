@@ -671,6 +671,9 @@
         @media (max-width: 600px) {
             .gallery-item { flex: 0 0 calc(100%); }
         }
+        @media (max-width: 768px) {
+            .hide-mobile-sentence { display: none; }
+        }
 
         .photo-tile-overlay {
             position: absolute; inset: 0;
@@ -854,6 +857,15 @@
             color: rgba(255,255,255,0.52);
         }
         .review-cta-wrap { text-align: center; margin-top: 52px; }
+        .review-social-proof { display: flex; justify-content: center; margin-bottom: 12px; }
+        .review-social-proof-inner { display: inline-flex; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: 9999px; padding: 4px 12px 4px 5px; box-shadow: 0 2px 12px rgba(0,0,0,0.25); }
+        .review-social-proof-avatars { display: flex; margin-right: 10px; }
+        .review-social-proof-avatars img { width: 32px; height: 32px; border-radius: 9999px; object-fit: cover; margin-left: -8px; box-shadow: 0 0 0 2px #0d0d0d; }
+        .review-social-proof-avatars img:first-child { margin-left: 0; }
+        .review-social-proof-text { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.3; }
+        .review-social-proof-text strong { color: #fff; font-weight: 600; }
+        @media (min-width: 900px) { .review-social-proof { display: none; } }
+        @media (max-width: 899px) { #reviews .section-header { margin-bottom: 28px; } .review-cta-wrap { margin-top: 24px; } }
         @media (max-width: 720px) { .reviews-row { flex-direction: column; align-items: center; } .review-card { width: 100%; max-width: 360px; } }
         .reviews-slider-desktop { display: none; margin-bottom: 52px; }
         @media (min-width: 900px) { .reviews-slider-desktop { display: block; } }
@@ -884,7 +896,7 @@
         }
         .mrc-eyebrow-line { flex: 1; max-width: 40px; height: 1px; background: rgba(15,175,232,0.35); }
         .mrc-eyebrow-text {
-            font-family: 'Ephesis', cursive; font-size: 18px;
+            font-family: 'Ephesis', cursive; font-size: 26px;
             color: #0FAFE8; letter-spacing: 0.02em;
         }
         .mrc-viewport {
@@ -1323,8 +1335,9 @@
                 top: 0 !important;
             }
             .nav-links { display: none; }
-            .hero-stats { flex-direction: column; gap: 0; }
+            .hero-stats { flex-direction: column; gap: 0; margin-top: 20px !important; padding-top: 20px !important; }
             .stat + .stat { border-left: none; padding-left: 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.07); }
+            .hero-content { padding-top: 20px !important; padding-bottom: 36px !important; }
             .cta-banner { padding: 52px 24px; }
             .footer-inner { flex-direction: column; align-items: flex-start; }
 
@@ -1411,7 +1424,7 @@
                         rgba(9,9,12,0.42) 51%,
                         rgba(9,9,12,0.15) 59%,
                         rgba(9,9,12,0.00) 68%),
-                    linear-gradient(to top, rgba(9,9,12,0.80) 0%, transparent 32%);
+                    linear-gradient(to top, rgba(9,9,12,1.00) 0%, rgba(9,9,12,0.95) 12%, rgba(9,9,12,0.70) 22%, transparent 38%);
             }
 
         }
@@ -1999,6 +2012,19 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                 <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
             </div>
 
+            <div class="mrc-slide">
+                <div class="mrc-header">
+                    <img class="mrc-avatar" src="brand_assets/review5.png" alt="Steve Mini Giants Inc." />
+                    <div class="mrc-name-wrap">
+                        <span class="mrc-name">Steve, Mini Giants Inc.</span>
+                        <span class="mrc-source">Google Review · 7 hours ago</span>
+                    </div>
+                </div>
+                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                <p class="mrc-text">"The team was great, on time on short notice. They did an amazing job bringing both cabs of our commercial trucks but to like new condition. Highly recommend! — Mini Giants Inc."</p>
+                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            </div>
+
             <!-- === Duplicate set for seamless loop === -->
             <div class="mrc-slide">
                 <div class="mrc-header">
@@ -2059,6 +2085,19 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                 </div>
                 <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
                 <p class="mrc-text">"Thanks again to the Signature Car Care team - they always do a stellar job of detailing my car. Looks brand new every time."</p>
+                <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            </div>
+
+            <div class="mrc-slide">
+                <div class="mrc-header">
+                    <img class="mrc-avatar" src="brand_assets/review5.png" alt="Steve Mini Giants Inc." />
+                    <div class="mrc-name-wrap">
+                        <span class="mrc-name">Steve, Mini Giants Inc.</span>
+                        <span class="mrc-source">Google Review · 7 hours ago</span>
+                    </div>
+                </div>
+                <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                <p class="mrc-text">"The team was great, on time on short notice. They did an amazing job bringing both cabs of our commercial trucks but to like new condition. Highly recommend! — Mini Giants Inc."</p>
                 <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
             </div>
 
@@ -2269,7 +2308,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                         <span class="corner corner-tr"></span>
                         <span class="corner corner-bl"></span>
                         <span class="corner corner-br"></span>
-                        <p class="value-box">Built for a <strong>complete reset</strong>, restoring your interior to like-new condition. Everything in our Basic Interior <strong>plus</strong> Steam Clean, Carpet Shampoo &amp; Leather Conditioning — all bundled. <strong>Save $25</strong> vs adding all additional services manually.</p>
+                        <p class="value-box">Built for a <strong>Complete Reset</strong>, restoring your interior to like-new condition. <span class="hide-mobile-sentence">Everything in our Basic Interior <strong>plus</strong> Steam Clean, Carpet Shampoo &amp; Leather Conditioning — all bundled. </span><strong>Save $25</strong> vs adding all additional services manually.</p>
                     </div>
                     <ul class="check-list">
                         <li><span class="chk"><svg width="10" height="10" fill="none" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#0FAFE8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Deep Vacuum</li>
@@ -2439,20 +2478,20 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                     </div>
                     <div class="mrc-slide">
                         <div class="mrc-header">
+                            <img class="mrc-avatar" src="brand_assets/review5.png" alt="Steve Mini Giants Inc." />
+                            <div class="mrc-name-wrap"><span class="mrc-name">Steve, Mini Giants Inc.</span><span class="mrc-source">Google Review · 7 hours ago</span></div>
+                        </div>
+                        <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                        <p class="mrc-text">"The team was great, on time on short notice. They did an amazing job bringing both cabs of our commercial trucks but to like new condition. Highly recommend! — Mini Giants Inc."</p>
+                        <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+                    </div>
+                    <div class="mrc-slide">
+                        <div class="mrc-header">
                             <div class="mrc-avatar-ini">JM</div>
                             <div class="mrc-name-wrap"><span class="mrc-name">James McMenemy</span><span class="mrc-source">Google Review · a year ago</span></div>
                         </div>
                         <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
                         <p class="mrc-text">"Had my Golf R detailed, and the results were amazing! The detailer was professional, thorough, and clearly knew his stuff. My car's exterior shines, and the interior is spotless. Highly recommend if you want your ride looking its best!"</p>
-                        <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
-                    </div>
-                    <div class="mrc-slide">
-                        <div class="mrc-header">
-                            <div class="mrc-avatar-ini">AE</div>
-                            <div class="mrc-name-wrap"><span class="mrc-name">Adam El Fouly</span><span class="mrc-source">Google Review · a year ago</span></div>
-                        </div>
-                        <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
-                        <p class="mrc-text">"Cleaned my car to absolute perfection, made sure to take very good care and cleaned parts of my car I've never even paid attention to! Will definitely be using their detailing service again and I couldn't be more happy with the professionalism and attention to detail!"</p>
                         <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
                     </div>
                     <div class="mrc-slide">
@@ -2512,20 +2551,20 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                     </div>
                     <div class="mrc-slide">
                         <div class="mrc-header">
+                            <img class="mrc-avatar" src="brand_assets/review5.png" alt="Steve Mini Giants Inc." />
+                            <div class="mrc-name-wrap"><span class="mrc-name">Steve, Mini Giants Inc.</span><span class="mrc-source">Google Review · 7 hours ago</span></div>
+                        </div>
+                        <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
+                        <p class="mrc-text">"The team was great, on time on short notice. They did an amazing job bringing both cabs of our commercial trucks but to like new condition. Highly recommend! — Mini Giants Inc."</p>
+                        <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+                    </div>
+                    <div class="mrc-slide">
+                        <div class="mrc-header">
                             <div class="mrc-avatar-ini">JM</div>
                             <div class="mrc-name-wrap"><span class="mrc-name">James McMenemy</span><span class="mrc-source">Google Review · a year ago</span></div>
                         </div>
                         <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
                         <p class="mrc-text">"Had my Golf R detailed, and the results were amazing! The detailer was professional, thorough, and clearly knew his stuff. My car's exterior shines, and the interior is spotless. Highly recommend if you want your ride looking its best!"</p>
-                        <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
-                    </div>
-                    <div class="mrc-slide">
-                        <div class="mrc-header">
-                            <div class="mrc-avatar-ini">AE</div>
-                            <div class="mrc-name-wrap"><span class="mrc-name">Adam El Fouly</span><span class="mrc-source">Google Review · a year ago</span></div>
-                        </div>
-                        <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
-                        <p class="mrc-text">"Cleaned my car to absolute perfection, made sure to take very good care and cleaned parts of my car I've never even paid attention to! Will definitely be using their detailing service again and I couldn't be more happy with the professionalism and attention to detail!"</p>
                         <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
                     </div>
                     <div class="mrc-slide">
@@ -2541,6 +2580,18 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
             </div>
         </div>
 
+        <div class="review-social-proof">
+            <div class="review-social-proof-inner">
+                <div class="review-social-proof-avatars">
+                    <img src="brand_assets/review1.png" alt="Rawan Ghuneim" />
+                    <img src="brand_assets/review2.png" alt="Cate Banfield" />
+                    <img src="brand_assets/review3.png" alt="Lauren Cussons" />
+                    <img src="brand_assets/review4.png" alt="John Fitzgerald" />
+                    <img src="brand_assets/review5.png" alt="Steve, Mini Giants Inc." />
+                </div>
+                <p class="review-social-proof-text"><strong>50+</strong> five-star reviews</p>
+            </div>
+        </div>
         <div class="review-cta-wrap reveal">
             <a href="https://www.google.com/maps/place/Signature+Car+Care/@43.7827584,-80.0021532,9z/data=!3m1!4b1!4m6!3m5!1s0x6fd1d03e64eb5e43:0x210117ba19c82a65!8m2!3d43.7836619!4d-79.3428036!16s%2Fg%2F11m5ky168m" target="_blank" rel="noopener noreferrer" class="btn btn-fill btn-md">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="rgba(255,255,255,0.3)" stroke="none"/><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -3416,8 +3467,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     var marquees = document.querySelectorAll('.mrc-marquee');
     marquees.forEach(function (marquee) {
         var isDesktop = !!marquee.closest('.reviews-slider-desktop');
-        // px per frame at 60fps: mobile ~0.52 (≈30s cycle), desktop ~0.22 (≈75s cycle)
-        var speed = isDesktop ? 0.22 : 0.52;
+        // px per frame at 60fps: mobile ~0.62 (≈25s cycle), desktop ~0.22 (≈75s cycle)
+        var speed = isDesktop ? 0.22 : 0.62;
         var pos = 0;
         var half = 0;
         var raf = null;
