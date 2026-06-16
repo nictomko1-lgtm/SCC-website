@@ -413,7 +413,7 @@
             padding: 50px 0 100px;
         }
         .hero-rule { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
-        .hero-rule-line { width: 44px; height: 1px; background: rgba(15,175,232,0.6); }
+        .hero-rule-line { width: 44px; height: 2px; background: rgba(15,175,232,0.9); border-radius: 1px; }
         .hero-rule-text {
             font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
             text-transform: uppercase; color: #0FAFE8;
@@ -443,11 +443,11 @@
         .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
         .hero-stats {
             display: flex; gap: 0; margin-top: 40px; padding-top: 34px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.25);
             flex-wrap: wrap;
         }
         .stat { padding-right: 44px; }
-        .stat + .stat { padding-left: 44px; border-left: 1px solid rgba(255,255,255,0.09); }
+        .stat + .stat { padding-left: 44px; border-left: 1px solid rgba(255,255,255,0.22); }
         .stat-num {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 44px; letter-spacing: -0.02em; color: #fff; line-height: 1;
@@ -526,6 +526,39 @@
             color: #fff; margin-bottom: 10px; text-transform: uppercase;
         }
         .feature-body { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.74; }
+
+        /* ======== BEFORE/AFTER SLIDER ======== */
+        .bna-slider-item { cursor: ew-resize; user-select: none; -webkit-user-select: none; }
+        .bna-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; display: block; pointer-events: none; }
+        .bna-after { will-change: clip-path; }
+        .bna-divider {
+            position: absolute; top: 0; bottom: 0; left: 50%;
+            width: 5px;
+            background: linear-gradient(to right, #0FAFE8 0%, #000 25%, #000 75%, #0FAFE8 100%);
+            transform: translateX(-50%); z-index: 6; pointer-events: none;
+            will-change: left;
+            box-shadow: 0 0 8px rgba(15,175,232,0.6);
+        }
+        .bna-handle {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 34px; height: 34px; border-radius: 50%;
+            background: #09090C;
+            border: 1.5px solid rgba(15,175,232,0.35);
+            display: flex; align-items: center; justify-content: center; gap: 2px;
+            box-shadow: 0 0 12px rgba(15,175,232,0.3), 0 2px 14px rgba(0,0,0,0.5);
+        }
+        .bna-badge {
+            position: absolute; top: 10px; padding: 3px 8px;
+            border-radius: 3px; font-size: 9px; font-weight: 700;
+            letter-spacing: 0.1em; z-index: 7; pointer-events: none;
+            text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif;
+            transition: opacity 0.2s ease;
+        }
+        .bna-badge-before { left: 10px; background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.85); }
+        .bna-badge-after  { right: 10px; background: rgba(15,175,232,0.85); color: #fff; }
+        .bna-slider-item .gallery-overlay { z-index: 4; pointer-events: none; }
+        .bna-slider-item .gallery-label { z-index: 8; }
 
         /* ======== 3-UP GALLERY CAROUSEL ======== */
         .gallery-carousel-wrap {
@@ -1394,7 +1427,7 @@
             /* Hide description text on mobile */
             .hero-sub { display: none !important; }
             .hero-script { display: none !important; }
-            .hero-rule { margin-top: 12px !important; margin-bottom: 6px !important; }
+            .hero-rule { margin-top: 30px !important; margin-bottom: 6px !important; }
 
             /* Let hero shrink to content height on mobile (no forced 100vh) */
             .hero { min-height: 0 !important; height: auto !important; }
@@ -2145,9 +2178,18 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                         <div class="gallery-label"><span class="gallery-label-dot"></span>In Action</div>
                     </div>
 
-                    <!-- 2: Before/After -->
-                    <div class="gallery-item">
-                        <div class="gallery-img" role="img" aria-label="Before and after detailing by Signature Car Care" data-bg="url('brand_assets/SCCBEFORENAFTER.webp')" style="background-position: center center; background-size: cover;"></div>
+                    <!-- 2: Interactive Before/After Slider -->
+                    <div class="gallery-item bna-slider-item" id="bnaSlider" aria-label="Interactive before and after detailing comparison">
+                        <img class="bna-img bna-before" src="brand_assets/beforeslider.webp" alt="Before detailing — Signature Car Care" draggable="false">
+                        <img class="bna-img bna-after" id="bnaAfterImg" src="brand_assets/afterslider.webp" alt="After detailing — Signature Car Care" draggable="false" style="clip-path: inset(0 0 0 50%);">
+                        <div class="bna-divider" id="bnaDivider">
+                            <div class="bna-handle">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                            </div>
+                        </div>
+                        <div class="bna-badge bna-badge-before" id="bnaBadgeBefore">Before</div>
+                        <div class="bna-badge bna-badge-after" id="bnaBadgeAfter">After</div>
                         <div class="gallery-overlay"></div>
                         <div class="gallery-label"><span class="gallery-label-dot"></span>Before & After</div>
                     </div>
@@ -3070,7 +3112,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         dotsRow.querySelectorAll('.gallery-dot').forEach(function(d, i) {
             d.classList.toggle('active', i === currentPage);
         });
-        document.getElementById('galleryPrevBtn').style.opacity = currentPage === 0 ? '0.3' : '1';
+        document.getElementById('galleryPrevBtn').style.visibility = currentPage === 0 ? 'hidden' : 'visible';
         document.getElementById('galleryNextBtn').style.opacity = currentPage === totalPages - 1 ? '0.3' : '1';
     }
 
@@ -3109,6 +3151,63 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     window.addEventListener('resize', function() { init(); });
 
     init();
+})();
+</script>
+
+<script>
+// Before/After slider
+(function() {
+    var slider  = document.getElementById('bnaSlider');
+    var after   = document.getElementById('bnaAfterImg');
+    var divider = document.getElementById('bnaDivider');
+    if (!slider || !after || !divider) return;
+
+    var dragging = false;
+    var pos = 50;
+    var badgeBefore = document.getElementById('bnaBadgeBefore');
+    var badgeAfter  = document.getElementById('bnaBadgeAfter');
+
+    function setPos(pct) {
+        pct = Math.max(2, Math.min(98, pct));
+        pos = pct;
+        after.style.clipPath   = 'inset(0 0 0 ' + pct + '%)';
+        divider.style.left     = pct + '%';
+        if (badgeBefore) badgeBefore.style.opacity = pct > 18 ? '1' : '0';
+        if (badgeAfter)  badgeAfter.style.opacity  = pct < 82 ? '1' : '0';
+    }
+
+    function getPos(clientX) {
+        var rect = slider.getBoundingClientRect();
+        return Math.round(((clientX - rect.left) / rect.width) * 100);
+    }
+
+    // Mouse
+    slider.addEventListener('mousedown', function(e) {
+        dragging = true;
+        setPos(getPos(e.clientX));
+        e.preventDefault();
+    });
+    document.addEventListener('mousemove', function(e) {
+        if (!dragging) return;
+        setPos(getPos(e.clientX));
+    });
+    document.addEventListener('mouseup', function() { dragging = false; });
+
+    // Touch — stop propagation so gallery swipe doesn't fire
+    slider.addEventListener('touchstart', function(e) {
+        dragging = true;
+        setPos(getPos(e.touches[0].clientX));
+        e.stopPropagation();
+    }, { passive: true });
+    slider.addEventListener('touchmove', function(e) {
+        if (!dragging) return;
+        setPos(getPos(e.touches[0].clientX));
+        e.stopPropagation();
+    }, { passive: true });
+    slider.addEventListener('touchend', function(e) {
+        dragging = false;
+        e.stopPropagation();
+    }, { passive: true });
 })();
 </script>
 
@@ -3473,8 +3572,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     var marquees = document.querySelectorAll('.mrc-marquee');
     marquees.forEach(function (marquee) {
         var isDesktop = !!marquee.closest('.reviews-slider-desktop');
-        // px per frame at 60fps: mobile ~1.28 (≈12s cycle), desktop ~0.22 (≈75s cycle)
-        var speed = isDesktop ? 0.22 : 1.28;
+        // px per frame at 60fps: mobile ~1.46 (≈10.5s cycle), desktop ~0.22 (≈75s cycle)
+        var speed = isDesktop ? 0.22 : 1.46;
         var pos = 0;
         var half = 0;
         var raf = null;
