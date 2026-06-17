@@ -533,20 +533,30 @@
         .bna-after { will-change: clip-path; }
         .bna-divider {
             position: absolute; top: 0; bottom: 0; left: 50%;
-            width: 7.5px;
-            background: linear-gradient(to right, #0FAFE8 0%, #000 25%, #000 75%, #0FAFE8 100%);
+            width: 7.875px;
             transform: translateX(-50%); z-index: 6; pointer-events: none;
             will-change: left;
-            box-shadow: 0 0 8px rgba(15,175,232,0.6);
+        }
+        .bna-divider::before {
+            content: '';
+            position: absolute;
+            left: 0; right: 0;
+            top: 0; bottom: 0;
+            background: linear-gradient(to right, #0FAFE8 0%, #000 12%, #000 88%, #0FAFE8 100%);
+            box-shadow: 0 0 8px rgba(15,175,232,0.582);
         }
         .bna-handle {
             position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 46px; height: 46px; border-radius: 50%;
+            width: 40px; height: 40px; border-radius: 50%;
             background: #09090C;
-            border: 1.5px solid rgba(15,175,232,0.35);
+            border: 1px solid rgba(15,175,232,0.582);
             display: flex; align-items: center; justify-content: center; gap: 2px;
             box-shadow: 0 0 12px rgba(15,175,232,0.3), 0 2px 14px rgba(0,0,0,0.5);
+            z-index: 7; pointer-events: none;
+        }
+        @media (max-width: 600px) {
+            .bna-handle { width: 45px; height: 45px; }
         }
         .bna-badge {
             position: absolute; top: 10px; padding: 3px 8px;
@@ -568,6 +578,9 @@
         .gallery-viewport {
             overflow: hidden;
             border-radius: 20px;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            background: #09090C;
         }
         .gallery-track {
             display: flex;
@@ -582,6 +595,16 @@
             aspect-ratio: 4/3;
             transition: transform 0.32s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.32s ease;
         }
+        .cycle-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: none;
+        }
+        .cycle-img.cycle-active { opacity: 1; }
         .gallery-item:hover {
             box-shadow: 0 28px 64px rgba(0,0,0,0.6), 0 0 44px rgba(15,175,232,0.13);
         }
@@ -656,9 +679,16 @@
         .gallery-label {
             position: absolute; bottom: 14px; left: 16px;
             font-family: 'Barlow Condensed', sans-serif;
-            font-size: 12px; font-weight: 700; letter-spacing: 0.13em;
+            font-size: 13.8px; font-weight: 700; letter-spacing: 0.13em;
             text-transform: uppercase; color: rgba(255,255,255,0.68);
             z-index: 4; display: flex; align-items: center; gap: 6px;
+        }
+        .gallery-label-sep {
+            color: rgba(255,255,255,0.5); font-weight: 400; margin: 0 2px;
+        }
+        .gallery-label-trust {
+            color: rgba(255,255,255,0.68); font-weight: 500;
+            letter-spacing: 0.06em; text-transform: none;
         }
         .gallery-label-dot {
             display: inline-block; width: 5px; height: 5px; border-radius: 50%;
@@ -936,6 +966,9 @@
             position: relative;
             overflow: hidden;
             width: 100%;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            background: #09090C;
         }
         .mrc-marquee {
             display: flex;
@@ -2171,34 +2204,43 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
                     <!-- 1: Video -->
                     <div class="gallery-item gallery-item-video">
-                        <video class="gallery-video" id="galleryVideo" autoplay muted loop playsinline preload="none" style="filter: brightness(1.15);">
-                            <source src="brand_assets/Final-trimcut.mp4" type="video/mp4">
+                        <video class="gallery-video" id="galleryVideo" autoplay muted loop playsinline preload="none" style="filter: brightness(1.15) contrast(1.2);">
+                            <source src="brand_assets/jetskiedit.mp4" type="video/mp4">
                         </video>
                         <div class="gallery-overlay"></div>
-                        <div class="gallery-label"><span class="gallery-label-dot"></span>In Action</div>
+                        <div class="gallery-label"><span class="gallery-label-dot"></span>In Action<span class="gallery-label-sep">|</span><span class="gallery-label-trust">If it moves, we clean it.</span></div>
                     </div>
 
                     <!-- 2: Interactive Before/After Slider -->
                     <div class="gallery-item bna-slider-item" id="bnaSlider" aria-label="Interactive before and after detailing comparison">
                         <img class="bna-img bna-before" src="brand_assets/beforeslider.webp" alt="Before detailing — Signature Car Care" draggable="false">
                         <img class="bna-img bna-after" id="bnaAfterImg" src="brand_assets/afterslider.webp" alt="After detailing — Signature Car Care" draggable="false" style="clip-path: inset(0 0 0 50%);">
-                        <div class="bna-divider" id="bnaDivider">
-                            <div class="bna-handle">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-                            </div>
+                        <div class="bna-handle" id="bnaHandle">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
                         </div>
+                        <div class="bna-divider" id="bnaDivider"></div>
                         <div class="bna-badge bna-badge-before" id="bnaBadgeBefore">Before</div>
                         <div class="bna-badge bna-badge-after" id="bnaBadgeAfter">After</div>
                         <div class="gallery-overlay"></div>
                         <div class="gallery-label"><span class="gallery-label-dot"></span>Before & After</div>
                     </div>
 
-                    <!-- 3: Before/After Exterior -->
+                    <!-- 3: Disaster Recovery — Cycling Before/After -->
+                    <div class="gallery-item" id="disasterCycle" aria-label="Disaster recovery before and after by Signature Car Care">
+                        <img class="cycle-img cycle-active" src="brand_assets/disasterbefore.webp" alt="Before disaster recovery — Signature Car Care">
+                        <img class="cycle-img" src="brand_assets/disasterafter.webp" alt="After disaster recovery — Signature Car Care">
+                        <div class="bna-badge bna-badge-before" id="disasterBadgeBefore">Before</div>
+                        <div class="bna-badge bna-badge-after" id="disasterBadgeAfter" style="right:auto;left:10px;">After</div>
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-label"><span class="gallery-label-dot"></span>Disaster Recovery</div>
+                    </div>
+
+                    <!-- 4: Before/After Exterior -->
                     <div class="gallery-item">
                         <div class="gallery-img" role="img" aria-label="Before and after exterior detailing by Signature Car Care" data-bg="url('brand_assets/BEFORENAFTEREXTERIOR.webp')" style="background-position: center center; background-size: cover;"></div>
                         <div class="gallery-overlay"></div>
-                        <div class="gallery-label"><span class="gallery-label-dot"></span>Before & After</div>
+                        <div class="gallery-label"><span class="gallery-label-dot"></span>Filth to Finish</div>
                     </div>
 
                     <!-- 4: DSC_6008 -->
@@ -3160,6 +3202,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     var slider  = document.getElementById('bnaSlider');
     var after   = document.getElementById('bnaAfterImg');
     var divider = document.getElementById('bnaDivider');
+    var handle  = document.getElementById('bnaHandle');
     if (!slider || !after || !divider) return;
 
     var dragging = false;
@@ -3168,10 +3211,11 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     var badgeAfter  = document.getElementById('bnaBadgeAfter');
 
     function setPos(pct) {
-        pct = Math.max(2, Math.min(98, pct));
+        pct = Math.max(6, Math.min(90, pct));
         pos = pct;
         after.style.clipPath   = 'inset(0 0 0 ' + pct + '%)';
         divider.style.left     = pct + '%';
+        if (handle) handle.style.left = pct + '%';
         if (badgeBefore) badgeBefore.style.opacity = pct > 18 ? '1' : '0';
         if (badgeAfter)  badgeAfter.style.opacity  = pct < 82 ? '1' : '0';
     }
@@ -3209,6 +3253,53 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         dragging = false;
         e.stopPropagation();
     }, { passive: true });
+})();
+</script>
+
+<script>
+// Disaster before/after cycle — only runs while visible in viewport
+(function() {
+    var el = document.getElementById('disasterCycle');
+    var imgs = Array.from(document.querySelectorAll('#disasterCycle .cycle-img'));
+    if (!el || !imgs.length) return;
+    var idx = 0;
+    var timer = null;
+
+    var badgeBefore = document.getElementById('disasterBadgeBefore');
+    var badgeAfter  = document.getElementById('disasterBadgeAfter');
+
+    function updateBadges() {
+        if (!badgeBefore || !badgeAfter) return;
+        badgeBefore.style.opacity = idx === 0 ? '1' : '0';
+        badgeAfter.style.opacity  = idx === 1 ? '1' : '0';
+    }
+
+    function doSwitch() {
+        imgs[idx].classList.remove('cycle-active');
+        idx = (idx + 1) % imgs.length;
+        imgs[idx].classList.add('cycle-active');
+        updateBadges();
+        timer = setTimeout(doSwitch, idx === 0 ? 2200 : 2500);
+    }
+
+    function start() {
+        if (timer) return;
+        updateBadges();
+        var afterImg = imgs[1];
+        var ready = afterImg.decode ? afterImg.decode().catch(function(){}) : Promise.resolve();
+        ready.then(function() {
+            if (!timer) timer = setTimeout(doSwitch, 2000);
+        });
+    }
+
+    function stop() {
+        clearTimeout(timer);
+        timer = null;
+    }
+
+    new IntersectionObserver(function(entries) {
+        entries[0].isIntersecting ? start() : stop();
+    }, { threshold: 0.5 }).observe(el);
 })();
 </script>
 
