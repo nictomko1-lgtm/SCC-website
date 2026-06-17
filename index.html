@@ -603,6 +603,8 @@
             object-fit: cover;
             opacity: 0;
             transition: none;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
         .cycle-img.cycle-active { opacity: 1; }
         .gallery-item:hover {
@@ -642,6 +644,8 @@
             background-size: cover;
             background-position: center;
             transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
         .gallery-item:hover .gallery-img { transform: scale(1.05); }
         .work-photo-wrap { transform: translateZ(0); }
