@@ -533,7 +533,7 @@
         .bna-after { will-change: clip-path; }
         .bna-divider {
             position: absolute; top: 0; bottom: 0; left: 50%;
-            width: 7.875px;
+            width: 6px;
             transform: translateX(-50%); z-index: 6; pointer-events: none;
             will-change: left;
         }
@@ -594,8 +594,6 @@
             overflow: hidden;
             aspect-ratio: 4/3;
             transition: transform 0.32s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.32s ease;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
         }
         .cycle-img {
             position: absolute;
@@ -667,7 +665,6 @@
             content: '';
             position: absolute; inset: 0;
             background: rgba(15,175,232,0.07);
-            mix-blend-mode: multiply;
             pointer-events: none; z-index: 2;
         }
         .gallery-item::before {
@@ -991,10 +988,10 @@
             position: relative;
         }
         .mrc-slide .corner { position: absolute; width: 14px; height: 14px; }
-        .mrc-slide .corner-tl { top: 0; left: 0; border-top: 2px solid #0FAFE8; border-left: 2px solid #0FAFE8; }
-        .mrc-slide .corner-tr { top: 0; right: 0; border-top: 2px solid #0FAFE8; border-right: 2px solid #0FAFE8; }
-        .mrc-slide .corner-bl { bottom: 0; left: 0; border-bottom: 2px solid #0FAFE8; border-left: 2px solid #0FAFE8; }
-        .mrc-slide .corner-br { bottom: 0; right: 0; border-bottom: 2px solid #0FAFE8; border-right: 2px solid #0FAFE8; }
+        .mrc-slide .corner-tl { top: 0; left: 0; border-top: 1px solid #0FAFE8; border-left: 1px solid #0FAFE8; }
+        .mrc-slide .corner-tr { top: 0; right: 0; border-top: 1px solid #0FAFE8; border-right: 1px solid #0FAFE8; }
+        .mrc-slide .corner-bl { bottom: 0; left: 0; border-bottom: 1px solid #0FAFE8; border-left: 1px solid #0FAFE8; }
+        .mrc-slide .corner-br { bottom: 0; right: 0; border-bottom: 1px solid #0FAFE8; border-right: 1px solid #0FAFE8; }
         .mrc-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
         .mrc-avatar {
             width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
