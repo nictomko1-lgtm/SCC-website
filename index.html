@@ -87,14 +87,14 @@
 
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; overscroll-behavior-y: none; background: #09090C; }
+        html { scroll-behavior: smooth; overscroll-behavior: none; background: #09090C; }
         body {
             font-family: 'Inter', sans-serif;
             background: #09090C;
             color: #fff;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            overscroll-behavior-y: none;
+            overscroll-behavior: none;
         }
 
         /* Grain overlay */
@@ -545,14 +545,19 @@
             background: #000;
             box-shadow: 0 0 8px rgba(15,175,232,0.582);
         }
+        @keyframes bna-breathe {
+            0%, 100% { box-shadow: 0 0 8px rgba(18,184,248,0.6), 0 0 20px rgba(18,184,248,0.35), 0 0 40px rgba(18,184,248,0.15), 0 2px 14px rgba(0,0,0,0.5); }
+            50%       { box-shadow: 0 0 14px rgba(18,184,248,0.9), 0 0 32px rgba(18,184,248,0.55), 0 0 60px rgba(18,184,248,0.25), 0 2px 14px rgba(0,0,0,0.5); }
+        }
         .bna-handle {
             position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             width: 40px; height: 40px; border-radius: 50%;
             background: #09090C;
-            border: 1px solid rgba(15,175,232,0.582);
+            border: none;
             display: flex; align-items: center; justify-content: center; gap: 2px;
-            box-shadow: 0 0 12px rgba(15,175,232,0.3), 0 2px 14px rgba(0,0,0,0.5);
+            box-shadow: 0 0 8px rgba(18,184,248,0.6), 0 0 20px rgba(18,184,248,0.35), 0 0 40px rgba(18,184,248,0.15), 0 2px 14px rgba(0,0,0,0.5);
+            animation: bna-breathe 2.8s ease-in-out infinite;
             z-index: 7; pointer-events: none;
         }
         @media (max-width: 600px) {
@@ -2216,7 +2221,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                         <img class="cycle-img cycle-active" src="brand_assets/disasterbefore.webp" alt="Before disaster recovery — Signature Car Care">
                         <img class="cycle-img" src="brand_assets/disasterafter.webp" alt="After disaster recovery — Signature Car Care">
                         <div class="bna-badge bna-badge-before" id="disasterBadgeBefore">Before</div>
-                        <div class="bna-badge bna-badge-after" id="disasterBadgeAfter" style="right:auto;left:10px;">After</div>
+                        <div class="bna-badge bna-badge-after" id="disasterBadgeAfter" style="right:auto;left:10px;opacity:0;">After</div>
                         <div class="gallery-overlay"></div>
                         <div class="gallery-label"><span class="gallery-label-dot"></span>Disaster Recovery</div>
                     </div>
@@ -2300,9 +2305,9 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
         <!-- Instagram embeds -->
         <div class="ig-grid">
-            <div class="ig-clip"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQXbmGlEV3e/" data-instgrm-version="14"></blockquote></div>
-            <div class="ig-clip"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DPSLn-SEcg-/" data-instgrm-version="14"></blockquote></div>
-            <div class="ig-clip"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DRGBO7FkfKy/" data-instgrm-version="14"></blockquote></div>
+            <div class="ig-clip"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DK-ZNm5Rd8L/" data-instgrm-version="14"></blockquote></div>
+            <div class="ig-clip"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DLIRiO4REIB/" data-instgrm-version="14"></blockquote></div>
+            <div class="ig-clip"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DJz9eT7xXk4/" data-instgrm-version="14"></blockquote></div>
         </div>
     </div>
 </section>
@@ -3649,8 +3654,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     var marquees = document.querySelectorAll('.mrc-marquee');
     marquees.forEach(function (marquee) {
         var isDesktop = !!marquee.closest('.reviews-slider-desktop');
-        // px per frame at 60fps: mobile ~1.46 (≈10.5s cycle), desktop ~0.22 (≈75s cycle)
-        var speed = isDesktop ? 0.22 : 1.46;
+        // px per frame at 60fps: mobile ~1.33 (≈11.5s cycle), desktop ~0.22 (≈75s cycle)
+        var speed = isDesktop ? 0.22 : 1.33;
         var pos = 0;
         var half = 0;
         var raf = null;
@@ -3673,7 +3678,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
             } else {
                 if (raf) { cancelAnimationFrame(raf); raf = null; }
             }
-        }, { threshold: 0 });
+        }, { threshold: 0, rootMargin: '0px 0px 200px 0px' });
         io.observe(marquee.closest('.mrc-viewport') || marquee);
     });
 })();
