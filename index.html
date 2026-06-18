@@ -3663,7 +3663,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         var isDesktop = !!marquee.closest('.reviews-slider-desktop');
         // px per frame at 60fps: mobile ~1.33 (≈11.5s cycle), desktop ~0.22 (≈75s cycle)
         var speed = isDesktop ? 0.22 : 1.33;
-        var pos = isDesktop ? 0 : 143;
+        var pos = isDesktop ? 0 : 0;
         var half = 0;
         var raf = null;
 
