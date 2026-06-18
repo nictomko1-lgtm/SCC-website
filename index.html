@@ -399,8 +399,7 @@
                 linear-gradient(270deg,
                     rgba(9,9,12,0.90) 0%,
                     rgba(9,9,12,0.50) 7%,
-                    rgba(9,9,12,0.00) 18%),
-                linear-gradient(to top, rgba(9,9,12,0.80) 0%, transparent 32%);
+                    rgba(9,9,12,0.00) 18%);
         }
         /* Blue tint treatment on photo */
         .hero-bg-photo::before {
@@ -3226,20 +3225,28 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     });
     document.addEventListener('mouseup', function() { dragging = false; });
 
-    // Touch — prevent page scroll while dragging horizontally
+    // Touch — only activate BNA drag when finger starts within 44px of the divider handle.
+    // Touches elsewhere fall through to the gallery carousel swipe handler.
+    var isBnaDrag = false;
     slider.addEventListener('touchstart', function(e) {
-        dragging = true;
-        e.stopPropagation();
+        var rect = slider.getBoundingClientRect();
+        var dividerX = rect.left + (pos / 100) * rect.width;
+        isBnaDrag = Math.abs(e.touches[0].clientX - dividerX) <= 44;
+        if (isBnaDrag) {
+            dragging = true;
+            e.stopPropagation();
+        }
     }, { passive: true });
     slider.addEventListener('touchmove', function(e) {
-        if (!dragging) return;
+        if (!dragging || !isBnaDrag) return;
         setPos(getPos(e.touches[0].clientX));
         e.preventDefault();
         e.stopPropagation();
     }, { passive: false });
     slider.addEventListener('touchend', function(e) {
+        if (isBnaDrag) e.stopPropagation();
         dragging = false;
-        e.stopPropagation();
+        isBnaDrag = false;
     }, { passive: true });
 })();
 </script>
@@ -3654,7 +3661,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         var isDesktop = !!marquee.closest('.reviews-slider-desktop');
         // px per frame at 60fps: mobile ~1.33 (≈11.5s cycle), desktop ~0.22 (≈75s cycle)
         var speed = isDesktop ? 0.22 : 1.33;
-        var pos = isDesktop ? 0 : 380;
+        var pos = isDesktop ? 0 : 580;
         var half = 0;
         var raf = null;
 
