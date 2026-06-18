@@ -1485,8 +1485,7 @@
                         rgba(9,9,12,0.72) 43%,
                         rgba(9,9,12,0.42) 51%,
                         rgba(9,9,12,0.15) 59%,
-                        rgba(9,9,12,0.00) 68%),
-                    linear-gradient(to top, rgba(9,9,12,1.00) 0%, rgba(9,9,12,0.95) 12%, rgba(9,9,12,0.70) 22%, transparent 38%);
+                        rgba(9,9,12,0.00) 68%);
             }
 
         }
@@ -3655,7 +3654,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         var isDesktop = !!marquee.closest('.reviews-slider-desktop');
         // px per frame at 60fps: mobile ~1.33 (≈11.5s cycle), desktop ~0.22 (≈75s cycle)
         var speed = isDesktop ? 0.22 : 1.33;
-        var pos = isDesktop ? 0 : 315;
+        var pos = isDesktop ? 0 : 380;
         var half = 0;
         var raf = null;
 
