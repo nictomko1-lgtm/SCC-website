@@ -1421,6 +1421,7 @@
             .hero-car-shadow { opacity: 0 !important; }
             .hero-steam-glow { opacity: 0 !important; }
             .hero-hood-flash { animation: none !important; opacity: 0 !important; }
+            .bna-handle { animation: none !important; }
             #cursor-glow { display: none !important; }
             #scroll-top-btn { display: none !important; }
             .card-lift:not(.reveal):not(.revealed) { transition: none !important; }
@@ -3660,8 +3661,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     var marquees = document.querySelectorAll('.mrc-marquee');
     marquees.forEach(function (marquee) {
         var isDesktop = !!marquee.closest('.reviews-slider-desktop');
-        // px per frame at 60fps: mobile ~1.22 (≈12.5s cycle), desktop ~0.22 (≈75s cycle)
-        var speed = isDesktop ? 0.22 : 1.22;
+        // px per frame at 60fps: mobile ~1.09 (≈14s cycle), desktop ~0.22 (≈75s cycle)
+        var speed = isDesktop ? 0.22 : 1.09;
         var pos = isDesktop ? 0 : 0;
         var half = 0;
         var raf = null;
