@@ -3230,7 +3230,6 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     // Touch — prevent page scroll while dragging horizontally
     slider.addEventListener('touchstart', function(e) {
         dragging = true;
-        setPos(getPos(e.touches[0].clientX));
         e.stopPropagation();
     }, { passive: true });
     slider.addEventListener('touchmove', function(e) {
@@ -3656,7 +3655,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         var isDesktop = !!marquee.closest('.reviews-slider-desktop');
         // px per frame at 60fps: mobile ~1.33 (≈11.5s cycle), desktop ~0.22 (≈75s cycle)
         var speed = isDesktop ? 0.22 : 1.33;
-        var pos = isDesktop ? 0 : 286;
+        var pos = isDesktop ? 0 : 315;
         var half = 0;
         var raf = null;
 
