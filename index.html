@@ -529,7 +529,7 @@
 
         /* ======== BEFORE/AFTER SLIDER ======== */
         .bna-slider-item { cursor: ew-resize; user-select: none; -webkit-user-select: none; }
-        .bna-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; display: block; pointer-events: none; -webkit-transform: translateZ(0); transform: translateZ(0); }
+        .bna-img { position: absolute; inset: -1px; width: calc(100% + 2px); height: calc(100% + 2px); object-fit: cover; object-position: center 50%; display: block; pointer-events: none; -webkit-transform: translateZ(0); transform: translateZ(0); }
         .bna-after { will-change: clip-path; }
         .bna-divider {
             position: absolute; top: 0; bottom: 0; left: 50%;
@@ -602,9 +602,9 @@
         }
         .cycle-img {
             position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
+            inset: -1px;
+            width: calc(100% + 2px);
+            height: calc(100% + 2px);
             object-fit: cover;
             opacity: 0;
             transition: none;
@@ -643,7 +643,7 @@
 
         /* Gallery item internals (shared with photo-tile) */
         .gallery-img {
-            position: absolute; inset: 0;
+            position: absolute; inset: -1px;
             background-size: cover;
             background-position: center;
             transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
