@@ -567,7 +567,6 @@
             border-radius: 3px; font-size: 9px; font-weight: 700;
             letter-spacing: 0.1em; z-index: 7; pointer-events: none;
             text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif;
-            transition: opacity 0.2s ease;
         }
         .bna-badge-before { left: 10px; background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.85); }
         .bna-badge-after  { right: 10px; background: rgba(15,175,232,0.85); color: #fff; }
@@ -3661,8 +3660,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     var marquees = document.querySelectorAll('.mrc-marquee');
     marquees.forEach(function (marquee) {
         var isDesktop = !!marquee.closest('.reviews-slider-desktop');
-        // px per frame at 60fps: mobile ~1.33 (≈11.5s cycle), desktop ~0.22 (≈75s cycle)
-        var speed = isDesktop ? 0.22 : 1.33;
+        // px per frame at 60fps: mobile ~1.22 (≈12.5s cycle), desktop ~0.22 (≈75s cycle)
+        var speed = isDesktop ? 0.22 : 1.22;
         var pos = isDesktop ? 0 : 0;
         var half = 0;
         var raf = null;
