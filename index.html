@@ -568,8 +568,8 @@
             letter-spacing: 0.1em; z-index: 7; pointer-events: none;
             text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif;
         }
-        .bna-badge-before { left: 10px; background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.85); }
-        .bna-badge-after  { right: 10px; background: rgba(15,175,232,0.85); color: #fff; }
+        .bna-badge-before { left: 10px; background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.85); transform: translateZ(0); will-change: opacity; }
+        .bna-badge-after  { right: 10px; background: rgba(15,175,232,0.85); color: #fff; transform: translateZ(0); will-change: opacity; }
         .bna-slider-item .gallery-overlay { z-index: 4; pointer-events: none; }
         .bna-slider-item .gallery-label { z-index: 8; }
 
@@ -2260,7 +2260,21 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                         <div class="bna-badge bna-badge-before" id="bnaBadgeBefore">Before</div>
                         <div class="bna-badge bna-badge-after" id="bnaBadgeAfter">After</div>
                         <div class="gallery-overlay"></div>
-                        <div class="gallery-label"><span class="gallery-label-dot"></span>Before & After</div>
+                    </div>
+
+                    <!-- 2b: Seat Stain Before/After Slider -->
+                    <div class="gallery-item bna-slider-item" id="bnaSlider2" aria-label="Interactive seat stain before and after comparison">
+                        <img class="bna-img bna-before" src="brand_assets/seatstainbefore.webp" alt="Before seat stain removal — Signature Car Care" draggable="false">
+                        <img class="bna-img bna-after" id="bnaAfterImg2" src="brand_assets/seatstainafter.webp" alt="After seat stain removal — Signature Car Care" draggable="false" style="clip-path: inset(0 0 0 50% round 0 18px 18px 0);">
+                        <div class="bna-handle" id="bnaHandle2">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                        </div>
+                        <div class="bna-divider" id="bnaDivider2"></div>
+                        <div class="bna-badge bna-badge-before" id="bnaBadgeBefore2">Before</div>
+                        <div class="bna-badge bna-badge-after" id="bnaBadgeAfter2">After</div>
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-label"><span class="gallery-label-dot"></span>Seat Stain Removal</div>
                     </div>
 
                     <!-- 3: Disaster Recovery — Cycling Before/After -->
@@ -3312,6 +3326,79 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     // IntersectionObserver fires once the element has zero intersection with
     // its root (threshold:0 + fully out), which is after the CSS transition
     // completes — no visual glitch, no polling, decoupled from nav logic.
+    var galleryVp = document.getElementById('galleryViewport');
+    if (galleryVp) {
+        new IntersectionObserver(function(entries) {
+            if (!entries[0].isIntersecting) setPos(50);
+        }, { root: galleryVp, threshold: 0 }).observe(slider);
+    }
+})();
+</script>
+
+<script>
+// Seat stain before/after slider
+(function() {
+    var slider  = document.getElementById('bnaSlider2');
+    var after   = document.getElementById('bnaAfterImg2');
+    var divider = document.getElementById('bnaDivider2');
+    var handle  = document.getElementById('bnaHandle2');
+    if (!slider || !after || !divider) return;
+
+    var dragging = false;
+    var pos = 50;
+    var badgeBefore = document.getElementById('bnaBadgeBefore2');
+    var badgeAfter  = document.getElementById('bnaBadgeAfter2');
+
+    function setPos(pct) {
+        pct = Math.max(6, Math.min(90, pct));
+        pos = pct;
+        after.style.clipPath   = 'inset(0 0 0 ' + pct + '% round 0 18px 18px 0)';
+        divider.style.left     = pct + '%';
+        if (handle) handle.style.left = pct + '%';
+        if (badgeBefore) badgeBefore.style.opacity = '1';
+        if (badgeAfter)  badgeAfter.style.opacity  = '1';
+    }
+
+    function getPos(clientX) {
+        var rect = slider.getBoundingClientRect();
+        return Math.round(((clientX - rect.left) / rect.width) * 100);
+    }
+
+    slider.addEventListener('mousedown', function(e) {
+        dragging = true;
+        setPos(getPos(e.clientX));
+        e.preventDefault();
+    });
+    document.addEventListener('mousemove', function(e) {
+        if (!dragging) return;
+        setPos(getPos(e.clientX));
+    });
+    document.addEventListener('mouseup', function() { dragging = false; });
+
+    var isBnaDrag = false;
+    slider.addEventListener('touchstart', function(e) {
+        var rect = slider.getBoundingClientRect();
+        var dividerX = rect.left + (pos / 100) * rect.width;
+        isBnaDrag = Math.abs(e.touches[0].clientX - dividerX) <= 44;
+        if (isBnaDrag) {
+            dragging = true;
+            e.stopPropagation();
+        }
+    }, { passive: true });
+    slider.addEventListener('touchmove', function(e) {
+        if (!dragging || !isBnaDrag) return;
+        setPos(getPos(e.touches[0].clientX));
+        e.preventDefault();
+        e.stopPropagation();
+    }, { passive: false });
+    slider.addEventListener('touchend', function(e) {
+        if (isBnaDrag) e.stopPropagation();
+        dragging = false;
+        isBnaDrag = false;
+    }, { passive: true });
+
+    setPos(50);
+
     var galleryVp = document.getElementById('galleryViewport');
     if (galleryVp) {
         new IntersectionObserver(function(entries) {
