@@ -3565,7 +3565,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     function setGalleryVisible(visible) {
         var v = visible ? '' : 'hidden';
         document.querySelectorAll('.gallery-item, .photo-tile, .gallery-img, .gallery-overlay, #galleryVideo, .ig-clip').forEach(function(el) {
-            el.style.visibility = v;
+            if (!el.closest('.bna-slider-item')) el.style.visibility = v;
         });
     }
 
