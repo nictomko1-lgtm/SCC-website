@@ -71,8 +71,6 @@
       fetchpriority="high">
     <link rel="preload" as="image" href="brand_assets/beforeslider.webp" fetchpriority="high">
     <link rel="preload" as="image" href="brand_assets/afterslider.webp" fetchpriority="high">
-    <link rel="preload" as="image" href="brand_assets/seatstainbefore.webp" fetchpriority="high">
-    <link rel="preload" as="image" href="brand_assets/seatstainafter.webp" fetchpriority="high">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap">
 
     <!-- SVG filter to remove white from logo PNG -->
@@ -3565,7 +3563,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     function setGalleryVisible(visible) {
         var v = visible ? '' : 'hidden';
         document.querySelectorAll('.gallery-item, .photo-tile, .gallery-img, .gallery-overlay, #galleryVideo, .ig-clip').forEach(function(el) {
-            if (!el.closest('.bna-slider-item')) el.style.visibility = v;
+            el.style.visibility = v;
         });
     }
 
