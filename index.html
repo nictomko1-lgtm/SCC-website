@@ -969,6 +969,8 @@
             align-items: center;
             width: max-content;
             will-change: transform;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
         .mrc-marquee .mrc-slide { margin-right: 14px; }
         .mrc-slide {
@@ -3857,7 +3859,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         function tick() {
             pos += speed;
             if (pos >= half) pos -= half;
-            marquee.style.transform = 'translateX(-' + Math.round(pos) + 'px)';
+            marquee.style.transform = 'translate3d(-' + pos + 'px,0,0)';
             raf = requestAnimationFrame(tick);
         }
 
