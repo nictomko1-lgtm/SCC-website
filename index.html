@@ -530,7 +530,7 @@
 
         /* ======== BEFORE/AFTER SLIDER ======== */
         .bna-slider-item { cursor: ew-resize; user-select: none; -webkit-user-select: none; }
-        .bna-img { position: absolute; inset: -1px; width: calc(100% + 2px); height: calc(100% + 2px); object-fit: cover; object-position: center 50%; display: block; pointer-events: none; -webkit-transform: translateZ(0); transform: translateZ(0); }
+        .bna-img { position: absolute; inset: -1px; width: calc(100% + 2px); height: calc(100% + 2px); object-fit: cover; object-position: center 50%; display: block; pointer-events: none; }
         .bna-after { will-change: clip-path; }
         .bna-divider {
             position: absolute; top: 0; bottom: 0; left: 50%;
@@ -3844,8 +3844,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     var marquees = document.querySelectorAll('.mrc-marquee');
     marquees.forEach(function (marquee) {
         var isDesktop = !!marquee.closest('.reviews-slider-desktop');
-        // px per frame at 60fps: mobile ~1.22 (≈12.5s cycle), desktop ~0.22 (≈75s cycle)
-        var speed = isDesktop ? 0.22 : 1.22;
+        // px per frame at 60fps: mobile ~1.53 (≈10s cycle), desktop ~0.22 (≈75s cycle)
+        var speed = isDesktop ? 0.22 : 1.53;
         var pos = isDesktop ? 0 : 0;
         var half = 0;
         var raf = null;
