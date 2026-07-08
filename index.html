@@ -3905,8 +3905,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     var marquees = document.querySelectorAll('.mrc-marquee');
     marquees.forEach(function (marquee) {
         var isDesktop = !!marquee.closest('.reviews-slider-desktop');
-        // px/sec — 25% slower than the original speed feel (mobile ~92px/s, desktop ~13px/s)
-        var speed = isDesktop ? 9.9 : 68.85;
+        // px/sec — mobile 25% slower than original; desktop 200% faster than original
+        var speed = isDesktop ? 39.6 : 68.85;
 
         function setDuration() {
             var half = marquee.scrollWidth / 2;
