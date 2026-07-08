@@ -987,7 +987,11 @@
             will-change: transform;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
+            animation: mrc-scroll 10s linear infinite;
+            animation-play-state: paused;
         }
+        .mrc-marquee.mrc-playing { animation-play-state: running; }
+        .reviews-slider-desktop .mrc-marquee { animation-duration: 75s; }
         .mrc-marquee .mrc-slide { margin-right: 14px; }
         .mrc-slide {
             width: 272px;
@@ -3013,7 +3017,7 @@ if (window.matchMedia('(max-width: 640px)').matches) {
                     Google Business
                 </a>
                 <a href="https://www.instagram.com/signaturecar.care/" target="_blank" rel="noopener" class="footer-link footer-link--ig">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
                     Signaturecar.care
                 </a>
             </div>
@@ -3896,35 +3900,13 @@ if (window.matchMedia('(max-width: 640px)').matches) {
 </script>
 
 <script>
-// Seamless marquee — rAF-driven to avoid CSS animation restart flicker
+// Seamless marquee — pure CSS animation (compositor-driven) so it stays smooth
+// while the page is scrolling. JS only toggles play/pause to save battery offscreen.
 (function () {
     var marquees = document.querySelectorAll('.mrc-marquee');
     marquees.forEach(function (marquee) {
-        var isDesktop = !!marquee.closest('.reviews-slider-desktop');
-        // px per frame at 60fps: mobile ~1.53 (≈10s cycle), desktop ~0.22 (≈75s cycle)
-        var speed = isDesktop ? 0.22 : 1.53;
-        var pos = isDesktop ? 0 : 0;
-        var half = 0;
-        var raf = null;
-
-        function measure() { half = marquee.scrollWidth / 2; }
-        measure();
-        window.addEventListener('resize', measure, { passive: true });
-
-        function tick() {
-            pos += speed;
-            if (pos >= half) pos -= half;
-            marquee.style.transform = 'translate3d(-' + pos + 'px,0,0)';
-            raf = requestAnimationFrame(tick);
-        }
-
-        // Only run while visible — saves battery when scrolled away
         var io = new IntersectionObserver(function (entries) {
-            if (entries[0].isIntersecting) {
-                if (!raf) raf = requestAnimationFrame(tick);
-            } else {
-                if (raf) { cancelAnimationFrame(raf); raf = null; }
-            }
+            marquee.classList.toggle('mrc-playing', entries[0].isIntersecting);
         }, { threshold: 0, rootMargin: '0px 0px 200px 0px' });
         io.observe(marquee.closest('.mrc-viewport') || marquee);
     });
