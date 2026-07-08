@@ -991,7 +991,6 @@
             animation-play-state: paused;
         }
         .mrc-marquee.mrc-playing { animation-play-state: running; }
-        .reviews-slider-desktop .mrc-marquee { animation-duration: 75s; }
         .mrc-marquee .mrc-slide { margin-right: 14px; }
         .mrc-slide {
             width: 272px;
@@ -3905,6 +3904,17 @@ if (window.matchMedia('(max-width: 640px)').matches) {
 (function () {
     var marquees = document.querySelectorAll('.mrc-marquee');
     marquees.forEach(function (marquee) {
+        var isDesktop = !!marquee.closest('.reviews-slider-desktop');
+        // px/sec — 25% slower than the original speed feel (mobile ~92px/s, desktop ~13px/s)
+        var speed = isDesktop ? 9.9 : 68.85;
+
+        function setDuration() {
+            var half = marquee.scrollWidth / 2;
+            marquee.style.animationDuration = (half / speed) + 's';
+        }
+        setDuration();
+        window.addEventListener('resize', setDuration, { passive: true });
+
         var io = new IntersectionObserver(function (entries) {
             marquee.classList.toggle('mrc-playing', entries[0].isIntersecting);
         }, { threshold: 0, rootMargin: '0px 0px 200px 0px' });
