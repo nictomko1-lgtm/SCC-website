@@ -278,6 +278,7 @@
             overflow: hidden;
             isolation: isolate;
             z-index: 0;
+            scroll-margin-top: 76px;
         }
         /* Real photo background — img element for precise crop/position control */
         .hero-bg-photo {
@@ -375,7 +376,7 @@
 
 
         /* ======== SECTIONS ======== */
-        .section { padding: 110px 0; }
+        .section { padding: 110px 0; scroll-margin-top: 76px; }
         .section-header { text-align: center; margin-bottom: 64px; }
         .eyebrow {
             display: flex; align-items: center; justify-content: center;
