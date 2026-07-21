@@ -3,11 +3,11 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/(gallery|services|reviews|why-us|contact|service-areas)", "destination": "/index.html" },
-    { "source": "/burlington/(gallery|services|reviews|why-us|contact|service-areas)", "destination": "/burlington.html" },
-    { "source": "/hamilton/(gallery|services|reviews|why-us|contact|service-areas)", "destination": "/hamilton.html" },
-    { "source": "/milton/(gallery|services|reviews|why-us|contact|service-areas)", "destination": "/milton.html" },
-    { "source": "/oakville/(gallery|services|reviews|why-us|contact|service-areas)", "destination": "/oakville.html" }
+    { "source": "/(gallery|services|reviews|why-us|contact|service-areas)", "destination": "/" },
+    { "source": "/burlington/(gallery|services|reviews|why-us|contact|service-areas)", "destination": "/burlington" },
+    { "source": "/hamilton/(gallery|services|reviews|why-us|contact|service-areas)", "destination": "/hamilton" },
+    { "source": "/milton/(gallery|services|reviews|why-us|contact|service-areas)", "destination": "/milton" },
+    { "source": "/oakville/(gallery|services|reviews|why-us|contact|service-areas)", "destination": "/oakville" }
   ],
   "redirects": [
     {
