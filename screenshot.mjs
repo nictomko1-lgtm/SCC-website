@@ -4,7 +4,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const require = createRequire(import.meta.url);
-const puppeteer = require('C:/Users/Owner/AppData/Local/Temp/puppeteer-test/node_modules/puppeteer');
+const puppeteer = require('puppeteer');
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const screenshotDir = join(__dirname, 'temporary screenshots');
