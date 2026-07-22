@@ -1043,6 +1043,12 @@
             border-color: rgba(15,175,232,0.55);
         }
         .svc-card-link:focus-visible { outline: 2px solid #0FAFE8; outline-offset: 3px; border-radius: 20px; }
+        .svc-card-current { display: flex; flex-direction: column; }
+        .svc-card-current .card-svc { opacity: 0.85; }
+        .svc-current-badge {
+            margin-top: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+            text-transform: uppercase; color: #0FAFE8; opacity: 0.8;
+        }
         .popular-tag {
             position: absolute; top: 20px; right: 20px;
             padding: 5px 13px; border-radius: 999px;

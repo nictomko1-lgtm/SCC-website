@@ -255,6 +255,27 @@
       }
     }
     </script>
+    <!-- ===== SEO: Service Schema (city-specific service offering) ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Mobile Auto Detailing",
+      "name": "Mobile Auto Detailing in Milton, ON",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Signature Car Care",
+        "url": "https://signaturecarcare.co/"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Milton",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      },
+      "url": "https://signaturecarcare.co/milton"
+    }
+    </script>
     <!-- ===== SEO: Organization Schema (Google logo in Knowledge Panel) ===== -->
     <script type="application/ld+json">
     {
@@ -1252,11 +1273,12 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                     <div class="svc-name">Hamilton</div>
                 </div>
             </a>
-            <a href="milton.html" class="svc-card-link reveal reveal-d1">
-                <div class="card card-lift card-svc" style="padding:28px; text-align:center;">
+            <div class="svc-card-current reveal reveal-d1">
+                <div class="card card-svc" style="padding:28px; text-align:center;">
                     <div class="svc-name">Milton</div>
+                    <div class="svc-current-badge">You're here</div>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
 </section>

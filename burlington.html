@@ -255,6 +255,27 @@
       }
     }
     </script>
+    <!-- ===== SEO: Service Schema (city-specific service offering) ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Mobile Auto Detailing",
+      "name": "Mobile Auto Detailing in Burlington, ON",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Signature Car Care",
+        "url": "https://signaturecarcare.co/"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Burlington",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      },
+      "url": "https://signaturecarcare.co/burlington"
+    }
+    </script>
     <!-- ===== SEO: Organization Schema (Google logo in Knowledge Panel) ===== -->
     <script type="application/ld+json">
     {
@@ -1237,11 +1258,12 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
             <h2 class="section-title">SERVICE AREAS</h2>
         </div>
         <div class="services-grid" style="margin-top:40px;">
-            <a href="burlington.html" class="svc-card-link reveal">
-                <div class="card card-lift card-svc" style="padding:28px; text-align:center;">
+            <div class="svc-card-current reveal">
+                <div class="card card-svc" style="padding:28px; text-align:center;">
                     <div class="svc-name">Burlington</div>
+                    <div class="svc-current-badge">You're here</div>
                 </div>
-            </a>
+            </div>
             <a href="oakville.html" class="svc-card-link reveal reveal-d1">
                 <div class="card card-lift card-svc" style="padding:28px; text-align:center;">
                     <div class="svc-name">Oakville</div>
