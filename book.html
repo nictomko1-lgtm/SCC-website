@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Online — Signature Car Care</title>
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    <meta name="description" content="Book your mobile auto detailing appointment with Signature Car Care online — pick a package, choose a time, and we'll come to you.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#09090C">
+    <link rel="icon" type="image/svg+xml" href="brand_assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="brand_assets/SCClogo-transparent.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="brand_assets/SCCLOGO2025NORMAL.PNG">
+    <link rel="canonical" href="https://signaturecarcare.co/book">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://signaturecarcare.co/book">
+    <meta property="og:site_name" content="Signature Car Care">
+    <meta property="og:title" content="Book Online — Signature Car Care">
+    <meta property="og:description" content="Book your mobile auto detailing appointment online — pick a package, choose a time, and we'll come to you.">
+    <meta property="og:image" content="https://signaturecarcare.co/brand_assets/SCClogo-transparent.png">
+    <meta property="og:locale" content="en_CA">
+
+    <link rel="preload" href="tailwind.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="tailwind.css"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body { overflow: hidden; }
+        .book-frame-wrap {
+            position: fixed;
+            top: calc(76px + env(safe-area-inset-top));
+            left: 0; right: 0; bottom: 0;
+        }
+        .book-frame-wrap iframe {
+            width: 100%; height: 100%; border: 0; display: block;
+        }
+    </style>
+</head>
+<body data-base-path="">
+
+<!-- ========== NAV ========== -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-home" aria-label="Signature Car Care — Home">
+            <span class="nav-home-sig">SIGNATURE</span>
+            <span class="nav-home-sub">— Car Care —</span>
+        </a>
+        <div class="nav-links">
+            <a href="/#gallery" class="nav-link">Our Work</a>
+            <a href="/#services" class="nav-link">Services</a>
+            <a href="/#reviews" class="nav-link">Reviews</a>
+            <a href="/#why-us" class="nav-link">Why Us</a>
+            <a href="/#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ========== BOOKING IFRAME ========== -->
+<div class="book-frame-wrap">
+    <iframe
+        src="https://detailpro-crm.vercel.app/book"
+        title="Book online — Signature Car Care"
+        allow="geolocation"
+    ></iframe>
+</div>
+
+</body>
+</html>
