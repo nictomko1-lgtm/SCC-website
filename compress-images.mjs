@@ -19,6 +19,8 @@ const images = [
   { in: 'LBWRX7-88.jpg',        out: 'LBWRX7-88.webp',        width: 1800, quality: 80 },
   // Contact form image — displayed at ~500px wide
   { in: 'IMG_6197.jpg',          out: 'IMG_6197.webp',          width: 900,  quality: 80 },
+  // Google Business card image — displayed at ~500px wide
+  { in: 'FINALCOVERPHOTO.png',   out: 'FINALCOVERPHOTO.webp',   width: 900,  quality: 80 },
   // Review card before/after thumbnails — displayed at ~130px wide in mobile carousel
   { in: 'dirtyreview.png',       out: 'dirtyreview.webp',       width: 300,  quality: 78 },
   { in: 'cleanreview.png',       out: 'cleanreview.webp',       width: 300,  quality: 78 },

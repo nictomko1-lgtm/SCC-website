@@ -43,6 +43,14 @@
 - If assets exist there, use them. Do not use placeholders where real assets are available.
 - If a logo is present, use it. If a color palette is defined, use those exact values — do not invent brand colors.
 
+## Multi-Page City Site Sync
+- This site has `index.html` (main page) plus one page per city: `burlington.html`, `hamilton.html`, `milton.html`, `oakville.html`. Treat `index.html` as the template all city pages must mirror.
+- **Any edit to shared content or structure — sections, copy, layout, styling, scripts, images, galleries — must be applied to `index.html` AND all four city pages, in the same change.** Don't finish a task after editing only `index.html` unless the user explicitly scoped the request to the main page.
+- Before editing, check whether the target content/section exists identically across all city pages (`diff index.html burlington.html`, etc.) so you know what's shared vs. city-specific.
+- Never overwrite city-consistent attributes when syncing: `<title>`, meta description/OG/Twitter tags, canonical/hreflang URLs, the per-city `Service` JSON-LD block, `geo.placename`, `data-base-path`, the hero eyebrow/subhead city mentions, the "You're here" Service Areas card state, and any city name embedded in copy.
+- After syncing, verify with `diff index.html <city>.html` for each city — the only differences should be the city-consistent attributes above. Any other diff is a bug to fix.
+- If a change is genuinely city-specific (e.g. a city-only promo), say so explicitly instead of applying it everywhere, and confirm with the user if it's ambiguous.
+
 ## Anti-Generic Guardrails
 - **Colors:** Never use default Tailwind palette (indigo-500, blue-600, etc.). Pick a custom brand color and derive from it.
 - **Shadows:** Never use flat `shadow-md`. Use layered, color-tinted shadows with low opacity.
