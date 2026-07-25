@@ -515,16 +515,6 @@
             transform: translateZ(0);
             will-change: transform;
         }
-        .cycle-img {
-            position: absolute;
-            inset: -1px;
-            width: calc(100% + 2px);
-            height: calc(100% + 2px);
-            object-fit: cover;
-            opacity: 0;
-            transition: none;
-        }
-        .cycle-img.cycle-active { opacity: 1; }
         .gallery-item:hover {
             box-shadow: 0 28px 64px rgba(0,0,0,0.6), 0 0 44px rgba(15,175,232,0.13);
         }
@@ -1157,6 +1147,23 @@
         .card-svc .corner-tr { top: -1px; right: -1px; border-top: 2px solid #0FAFE8; border-right: 2px solid #0FAFE8; }
         .card-svc .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid #0FAFE8; border-left: 2px solid #0FAFE8; }
         .card-svc .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid #0FAFE8; border-right: 2px solid #0FAFE8; }
+        .map-card {
+            position: relative;
+            border: 1px solid rgba(15,175,232,0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .map-card iframe {
+            display: block;
+            width: 100%;
+            filter: grayscale(30%) invert(90%) contrast(85%) hue-rotate(180deg);
+        }
+        .map-card .corner { position: absolute; width: 18px; height: 18px; z-index: 2; }
+        .map-card .corner-tl { top: -1px; left: -1px; border-top: 2px solid #0FAFE8; border-left: 2px solid #0FAFE8; }
+        .map-card .corner-tr { top: -1px; right: -1px; border-top: 2px solid #0FAFE8; border-right: 2px solid #0FAFE8; }
+        .map-card .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid #0FAFE8; border-left: 2px solid #0FAFE8; }
+        .map-card .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid #0FAFE8; border-right: 2px solid #0FAFE8; }
         .contact-form-label {
             font-family: 'Ephesis', cursive;
             font-size: clamp(22px, 3vw, 32px);

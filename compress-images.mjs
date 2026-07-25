@@ -22,6 +22,12 @@ const images = [
   // Review card before/after thumbnails — displayed at ~130px wide in mobile carousel
   { in: 'dirtyreview.png',       out: 'dirtyreview.webp',       width: 300,  quality: 78 },
   { in: 'cleanreview.png',       out: 'cleanreview.webp',       width: 300,  quality: 78 },
+  // Pet hair removal before/after slider — displayed at max ~600px wide in 3-up carousel
+  { in: 'doghairbefore.png',     out: 'doghairbefore.webp',     width: 1600, quality: 80 },
+  { in: 'doghairafter (2).png',  out: 'doghairafter.webp',      width: 1600, quality: 80 },
+  // Headlight restoration before/after slider — displayed at max ~600px wide in 3-up carousel
+  { in: 'headlightrestobefore.png', out: 'headlightrestobefore.webp', width: 1600, quality: 80 },
+  { in: 'headlightrestoafter.png',  out: 'headlightrestoafter.webp',  width: 1600, quality: 80 },
 ];
 
 let totalSaved = 0;
