@@ -7,6 +7,24 @@
     <title>Book Online — Signature Car Care</title>
     <script defer src="/_vercel/insights/script.js"></script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18173391180"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18173391180', {'send_page_view': false});
+
+      // Fires the "Booking Completed" conversion when the CRM iframe
+      // signals the booking flow has actually finished (not just clicked into).
+      window.addEventListener('message', function (e) {
+        if (e.origin !== 'https://detailpro-crm.vercel.app') return;
+        if (e.data && e.data.type === 'scc_booking_completed') {
+          gtag('event', 'conversion', {'send_to': 'AW-18173391180/e-qMCJid6NYcEMzi391D'});
+        }
+      });
+    </script>
+
     <meta name="description" content="Book your mobile auto detailing appointment with Signature Car Care online — pick a package, choose a time, and we'll come to you.">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#09090C">
