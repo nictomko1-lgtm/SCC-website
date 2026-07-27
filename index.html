@@ -67,9 +67,16 @@
       imagesrcset="brand_assets/DSC01254-BLURRED-690.webp 690w, brand_assets/DSC01254-BLURRED.webp 2400w"
       imagesizes="(max-width: 640px) 100vw, 100vw"
       fetchpriority="high">
-    <link rel="preload" as="image" href="brand_assets/beforeslider.webp" fetchpriority="high">
-    <link rel="preload" as="image" href="brand_assets/afterslider.webp" fetchpriority="high">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="preload" as="image" href="brand_assets/beforeslider.webp"
+      imagesrcset="brand_assets/beforeslider-480.webp 480w, brand_assets/beforeslider-831.webp 831w, brand_assets/beforeslider.webp 1080w"
+      imagesizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+      fetchpriority="high">
+    <link rel="preload" as="image" href="brand_assets/afterslider.webp"
+      imagesrcset="brand_assets/afterslider-480.webp 480w, brand_assets/afterslider-831.webp 831w, brand_assets/afterslider.webp 1080w"
+      imagesizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+      fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
 
     <!-- SVG filter to remove white from logo PNG -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -85,7 +92,8 @@
         </defs>
     </svg>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
 
     <!-- ===== SEO: LocalBusiness Structured Data (JSON-LD) ===== -->
     <script type="application/ld+json">
@@ -464,7 +472,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                 <p class="mrc-text mrc-text-full">"Absolutely amazing job!!!!??"</p>
                 <div class="mrc-imgs" style="margin-top: 24px;">
                     <div class="mrc-img-wrap mrc-img-solo">
-                        <img src="brand_assets/review6imgwebp-opt.webp" alt="Adam's vehicle" loading="lazy" style="object-position: 25% bottom;" />
+                        <img src="brand_assets/review6imgwebp-opt.webp" alt="Adam's vehicle" loading="lazy" width="600" height="280" style="object-position: 25% bottom;" />
                     </div>
                 </div>
                 <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
@@ -505,7 +513,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                 <p class="mrc-text mrc-text-full">"Very prompt. Reliable. Perfect."</p>
                 <div class="mrc-imgs" style="margin-top: 24px;">
                     <div class="mrc-img-wrap">
-                        <img src="brand_assets/manureviewimg-opt.webp" alt="Manu Sharma's vehicle interior" loading="lazy" decoding="async" style="aspect-ratio: 4/5;" />
+                        <img src="brand_assets/manureviewimg-opt.webp" alt="Manu Sharma's vehicle interior" loading="lazy" decoding="async" width="384" height="512" style="aspect-ratio: 4/5;" />
                     </div>
                     <div class="mrc-img-wrap">
                         <img src="brand_assets/manureviewimg2-opt.webp" alt="Manu Sharma's vehicle seat" loading="lazy" decoding="async" style="aspect-ratio: 4/5;" />
@@ -592,7 +600,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                 <p class="mrc-text mrc-text-full">"Absolutely amazing job!!!!??"</p>
                 <div class="mrc-imgs" style="margin-top: 24px;">
                     <div class="mrc-img-wrap mrc-img-solo">
-                        <img src="brand_assets/review6imgwebp-opt.webp" alt="Adam's vehicle" loading="lazy" style="object-position: 25% bottom;" />
+                        <img src="brand_assets/review6imgwebp-opt.webp" alt="Adam's vehicle" loading="lazy" width="600" height="280" style="object-position: 25% bottom;" />
                     </div>
                 </div>
                 <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
@@ -633,7 +641,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                 <p class="mrc-text mrc-text-full">"Very prompt. Reliable. Perfect."</p>
                 <div class="mrc-imgs" style="margin-top: 24px;">
                     <div class="mrc-img-wrap">
-                        <img src="brand_assets/manureviewimg-opt.webp" alt="Manu Sharma's vehicle interior" loading="lazy" decoding="async" style="aspect-ratio: 4/5;" />
+                        <img src="brand_assets/manureviewimg-opt.webp" alt="Manu Sharma's vehicle interior" loading="lazy" decoding="async" width="384" height="512" style="aspect-ratio: 4/5;" />
                     </div>
                     <div class="mrc-img-wrap">
                         <img src="brand_assets/manureviewimg2-opt.webp" alt="Manu Sharma's vehicle seat" loading="lazy" decoding="async" style="aspect-ratio: 4/5;" />
@@ -734,8 +742,8 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
                     <!-- 2: Interactive Before/After Slider -->
                     <div class="gallery-item bna-slider-item" id="bnaSlider" aria-label="Interactive before and after detailing comparison">
-                        <img class="bna-img bna-before" src="brand_assets/beforeslider.webp" alt="Before detailing — Signature Car Care" draggable="false">
-                        <img class="bna-img bna-after" id="bnaAfterImg" src="brand_assets/afterslider.webp" alt="After detailing — Signature Car Care" draggable="false" style="clip-path: inset(0 0 0 50% round 0 18px 18px 0);">
+                        <img class="bna-img bna-before" src="brand_assets/beforeslider.webp" srcset="brand_assets/beforeslider-480.webp 480w, brand_assets/beforeslider-831.webp 831w, brand_assets/beforeslider.webp 1080w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="1080" height="1440" alt="Before detailing — Signature Car Care" draggable="false">
+                        <img class="bna-img bna-after" id="bnaAfterImg" src="brand_assets/afterslider.webp" srcset="brand_assets/afterslider-480.webp 480w, brand_assets/afterslider-831.webp 831w, brand_assets/afterslider.webp 1080w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="1080" height="1440" alt="After detailing — Signature Car Care" draggable="false" style="clip-path: inset(0 0 0 50% round 0 18px 18px 0);">
                         <div class="bna-handle" id="bnaHandle">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
@@ -748,8 +756,8 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
                     <!-- 2b: Headlight Restoration Before/After Slider -->
                     <div class="gallery-item bna-slider-item" id="bnaSlider4" aria-label="Interactive headlight restoration before and after comparison">
-                        <img class="bna-img bna-before" src="brand_assets/headlightrestobefore.webp" alt="Before headlight restoration — Signature Car Care" draggable="false">
-                        <img class="bna-img bna-after" id="bnaAfterImg4" src="brand_assets/headlightrestoafter.webp" alt="After headlight restoration — Signature Car Care" draggable="false" style="clip-path: inset(0 0 0 50% round 0 18px 18px 0);">
+                        <img class="bna-img bna-before" src="brand_assets/headlightrestobefore.webp" srcset="brand_assets/headlightrestobefore-480.webp 480w, brand_assets/headlightrestobefore-831.webp 831w, brand_assets/headlightrestobefore.webp 1080w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="1080" height="1440" alt="Before headlight restoration — Signature Car Care" draggable="false">
+                        <img class="bna-img bna-after" id="bnaAfterImg4" src="brand_assets/headlightrestoafter.webp" srcset="brand_assets/headlightrestoafter-480.webp 480w, brand_assets/headlightrestoafter-831.webp 831w, brand_assets/headlightrestoafter.webp 1080w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="1080" height="1440" alt="After headlight restoration — Signature Car Care" draggable="false" style="clip-path: inset(0 0 0 50% round 0 18px 18px 0);">
                         <div class="bna-handle" id="bnaHandle4">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
@@ -763,8 +771,8 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
                     <!-- 2c: Pet Hair Removal Before/After Slider -->
                     <div class="gallery-item bna-slider-item" id="bnaSlider3" aria-label="Interactive pet hair removal before and after comparison">
-                        <img class="bna-img bna-before" src="brand_assets/doghairbefore.webp" alt="Before pet hair removal — Signature Car Care" draggable="false">
-                        <img class="bna-img bna-after" id="bnaAfterImg3" src="brand_assets/doghairafter.webp" alt="After pet hair removal — Signature Car Care" draggable="false" style="clip-path: inset(0 0 0 50% round 0 18px 18px 0);">
+                        <img class="bna-img bna-before" src="brand_assets/doghairbefore.webp" srcset="brand_assets/doghairbefore-480.webp 480w, brand_assets/doghairbefore-831.webp 831w, brand_assets/doghairbefore.webp 1080w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="1080" height="1440" alt="Before pet hair removal — Signature Car Care" draggable="false">
+                        <img class="bna-img bna-after" id="bnaAfterImg3" src="brand_assets/doghairafter.webp" srcset="brand_assets/doghairafter-480.webp 480w, brand_assets/doghairafter-831.webp 831w, brand_assets/doghairafter.webp 1080w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="1080" height="1441" alt="After pet hair removal — Signature Car Care" draggable="false" style="clip-path: inset(0 0 0 50% round 0 18px 18px 0);">
                         <div class="bna-handle" id="bnaHandle3">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
@@ -778,8 +786,8 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
                     <!-- 2d: Seat Stain Before/After Slider -->
                     <div class="gallery-item bna-slider-item" id="bnaSlider2" aria-label="Interactive seat stain before and after comparison">
-                        <img class="bna-img bna-before" src="brand_assets/seatstainbefore.webp" alt="Before seat stain removal — Signature Car Care" draggable="false">
-                        <img class="bna-img bna-after" id="bnaAfterImg2" src="brand_assets/seatstainafter.webp" alt="After seat stain removal — Signature Car Care" draggable="false" style="clip-path: inset(0 0 0 50% round 0 18px 18px 0);">
+                        <img class="bna-img bna-before" src="brand_assets/seatstainbefore.webp" srcset="brand_assets/seatstainbefore-480.webp 480w, brand_assets/seatstainbefore-831.webp 831w, brand_assets/seatstainbefore.webp 1080w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="1080" height="1440" alt="Before seat stain removal — Signature Car Care" draggable="false">
+                        <img class="bna-img bna-after" id="bnaAfterImg2" src="brand_assets/seatstainafter.webp" srcset="brand_assets/seatstainafter-480.webp 480w, brand_assets/seatstainafter-831.webp 831w, brand_assets/seatstainafter.webp 1080w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="1080" height="1440" alt="After seat stain removal — Signature Car Care" draggable="false" style="clip-path: inset(0 0 0 50% round 0 18px 18px 0);">
                         <div class="bna-handle" id="bnaHandle2">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
@@ -793,8 +801,8 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
 
                     <!-- 3: Disaster Recovery Before/After Slider -->
                     <div class="gallery-item bna-slider-item" id="bnaSlider5" aria-label="Interactive disaster recovery before and after comparison">
-                        <img class="bna-img bna-before" src="brand_assets/disasterbefore.webp" alt="Before disaster recovery — Signature Car Care" draggable="false">
-                        <img class="bna-img bna-after" id="bnaAfterImg5" src="brand_assets/disasterafter.webp" alt="After disaster recovery — Signature Car Care" draggable="false" style="clip-path: inset(0 0 0 50% round 0 18px 18px 0);">
+                        <img class="bna-img bna-before" src="brand_assets/disasterbefore.webp" srcset="brand_assets/disasterbefore-480.webp 480w, brand_assets/disasterbefore-831.webp 831w, brand_assets/disasterbefore.webp 1080w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="1080" height="1440" alt="Before disaster recovery — Signature Car Care" draggable="false">
+                        <img class="bna-img bna-after" id="bnaAfterImg5" src="brand_assets/disasterafter.webp" srcset="brand_assets/disasterafter-480.webp 480w, brand_assets/disasterafter-831.webp 831w, brand_assets/disasterafter.webp 1080w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="1080" height="1440" alt="After disaster recovery — Signature Car Care" draggable="false" style="clip-path: inset(0 0 0 50% round 0 18px 18px 0);">
                         <div class="bna-handle" id="bnaHandle5">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
@@ -1125,7 +1133,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                         </div>
                         <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
                         <p class="mrc-text mrc-text-full">"Absolutely amazing job!!!!??"</p>
-                        <div class="mrc-imgs" style="margin-top: 24px;"><div class="mrc-img-wrap mrc-img-solo"><img src="brand_assets/review6imgwebp-opt.webp" alt="Adam's vehicle" loading="lazy" style="object-position: 25% bottom;" /></div></div>
+                        <div class="mrc-imgs" style="margin-top: 24px;"><div class="mrc-img-wrap mrc-img-solo"><img src="brand_assets/review6imgwebp-opt.webp" alt="Adam's vehicle" loading="lazy" width="600" height="280" style="object-position: 25% bottom;" /></div></div>
                         <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
                     </div>
                     <div class="mrc-slide">
@@ -1208,7 +1216,7 @@ if (!window.matchMedia('(max-width: 640px)').matches) {
                         </div>
                         <div class="mrc-stars"><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg><svg viewBox="0 0 20 20" fill="#F5A623"><path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg></div>
                         <p class="mrc-text mrc-text-full">"Absolutely amazing job!!!!??"</p>
-                        <div class="mrc-imgs" style="margin-top: 24px;"><div class="mrc-img-wrap mrc-img-solo"><img src="brand_assets/review6imgwebp-opt.webp" alt="Adam's vehicle" loading="lazy" style="object-position: 25% bottom;" /></div></div>
+                        <div class="mrc-imgs" style="margin-top: 24px;"><div class="mrc-img-wrap mrc-img-solo"><img src="brand_assets/review6imgwebp-opt.webp" alt="Adam's vehicle" loading="lazy" width="600" height="280" style="object-position: 25% bottom;" /></div></div>
                         <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
                     </div>
                     <div class="mrc-slide">
@@ -1526,19 +1534,39 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         if (window.instgrm) window.instgrm.Embeds.process();
         setTimeout(function() { tryProcess(attemptsLeft - 1); }, 2500);
     }
-    var s = document.createElement('script');
-    s.src = 'https://www.instagram.com/embed.js';
-    s.async = true;
-    s.onload = function() {
-        started = true;
-        tryProcess(8);
-    };
-    document.body.appendChild(s);
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            if (!started) tryProcess(8);
-        }, 800);
-    });
+    function loadEmbedScript() {
+        var s = document.createElement('script');
+        s.src = 'https://www.instagram.com/embed.js';
+        s.async = true;
+        s.onload = function() {
+            started = true;
+            tryProcess(8);
+        };
+        document.body.appendChild(s);
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (!started) tryProcess(8);
+            }, 800);
+        });
+    }
+    // Defer fetching embed.js (~250KB across ~6 requests) until the Instagram
+    // section is about to scroll into view, so it doesn't sit on the initial
+    // critical request chain for a below-the-fold section.
+    var igGrid = document.querySelector('.ig-grid');
+    if (!igGrid || !('IntersectionObserver' in window)) {
+        loadEmbedScript();
+    } else {
+        var igLoaded = false;
+        var igObserver = new IntersectionObserver(function(entries) {
+            if (igLoaded) return;
+            if (entries[0].isIntersecting) {
+                igLoaded = true;
+                igObserver.disconnect();
+                loadEmbedScript();
+            }
+        }, { rootMargin: '200px 0px' });
+        igObserver.observe(igGrid);
+    }
 })();
 </script>
 
@@ -1757,11 +1785,6 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         return 3;
     }
 
-    function getItemWidth() {
-        var visibleItems = getVisibleItems();
-        return visibleItems.length ? visibleItems[0].getBoundingClientRect().width : 0;
-    }
-
     function buildDots(totalPages) {
         dotsRow.innerHTML = '';
         for (var p = 0; p < totalPages; p++) {
@@ -1851,14 +1874,22 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         if (handle) handle.style.left = pct + '%';
     }
 
+    // Cached at drag-start only; reused for every pointermove/touchmove during
+    // the drag to avoid forcing a synchronous layout on each event.
+    var cachedRect = null;
+    function measureRect() {
+        cachedRect = slider.getBoundingClientRect();
+    }
+
     function getPos(clientX) {
-        var rect = slider.getBoundingClientRect();
+        var rect = cachedRect || slider.getBoundingClientRect();
         return Math.round(((clientX - rect.left) / rect.width) * 100);
     }
 
     // Mouse
     slider.addEventListener('mousedown', function(e) {
         dragging = true;
+        measureRect();
         setPos(getPos(e.clientX));
         e.preventDefault();
     });
@@ -1872,7 +1903,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
     // Touches elsewhere fall through to the gallery carousel swipe handler.
     var isBnaDrag = false;
     slider.addEventListener('touchstart', function(e) {
-        var rect = slider.getBoundingClientRect();
+        measureRect();
+        var rect = cachedRect;
         var dividerX = rect.left + (pos / 100) * rect.width;
         isBnaDrag = Math.abs(e.touches[0].clientX - dividerX) <= 44;
         if (isBnaDrag) {
@@ -1927,13 +1959,21 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         if (handle) handle.style.left = pct + '%';
     }
 
+    // Cached at drag-start only; reused for every pointermove/touchmove during
+    // the drag to avoid forcing a synchronous layout on each event.
+    var cachedRect = null;
+    function measureRect() {
+        cachedRect = slider.getBoundingClientRect();
+    }
+
     function getPos(clientX) {
-        var rect = slider.getBoundingClientRect();
+        var rect = cachedRect || slider.getBoundingClientRect();
         return Math.round(((clientX - rect.left) / rect.width) * 100);
     }
 
     slider.addEventListener('mousedown', function(e) {
         dragging = true;
+        measureRect();
         setPos(getPos(e.clientX));
         e.preventDefault();
     });
@@ -1945,7 +1985,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
 
     var isBnaDrag = false;
     slider.addEventListener('touchstart', function(e) {
-        var rect = slider.getBoundingClientRect();
+        measureRect();
+        var rect = cachedRect;
         var dividerX = rect.left + (pos / 100) * rect.width;
         isBnaDrag = Math.abs(e.touches[0].clientX - dividerX) <= 44;
         if (isBnaDrag) {
@@ -1996,13 +2037,21 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         if (handle) handle.style.left = pct + '%';
     }
 
+    // Cached at drag-start only; reused for every pointermove/touchmove during
+    // the drag to avoid forcing a synchronous layout on each event.
+    var cachedRect = null;
+    function measureRect() {
+        cachedRect = slider.getBoundingClientRect();
+    }
+
     function getPos(clientX) {
-        var rect = slider.getBoundingClientRect();
+        var rect = cachedRect || slider.getBoundingClientRect();
         return Math.round(((clientX - rect.left) / rect.width) * 100);
     }
 
     slider.addEventListener('mousedown', function(e) {
         dragging = true;
+        measureRect();
         setPos(getPos(e.clientX));
         e.preventDefault();
     });
@@ -2014,7 +2063,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
 
     var isBnaDrag = false;
     slider.addEventListener('touchstart', function(e) {
-        var rect = slider.getBoundingClientRect();
+        measureRect();
+        var rect = cachedRect;
         var dividerX = rect.left + (pos / 100) * rect.width;
         isBnaDrag = Math.abs(e.touches[0].clientX - dividerX) <= 44;
         if (isBnaDrag) {
@@ -2065,13 +2115,21 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         if (handle) handle.style.left = pct + '%';
     }
 
+    // Cached at drag-start only; reused for every pointermove/touchmove during
+    // the drag to avoid forcing a synchronous layout on each event.
+    var cachedRect = null;
+    function measureRect() {
+        cachedRect = slider.getBoundingClientRect();
+    }
+
     function getPos(clientX) {
-        var rect = slider.getBoundingClientRect();
+        var rect = cachedRect || slider.getBoundingClientRect();
         return Math.round(((clientX - rect.left) / rect.width) * 100);
     }
 
     slider.addEventListener('mousedown', function(e) {
         dragging = true;
+        measureRect();
         setPos(getPos(e.clientX));
         e.preventDefault();
     });
@@ -2083,7 +2141,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
 
     var isBnaDrag = false;
     slider.addEventListener('touchstart', function(e) {
-        var rect = slider.getBoundingClientRect();
+        measureRect();
+        var rect = cachedRect;
         var dividerX = rect.left + (pos / 100) * rect.width;
         isBnaDrag = Math.abs(e.touches[0].clientX - dividerX) <= 44;
         if (isBnaDrag) {
@@ -2134,13 +2193,21 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         if (handle) handle.style.left = pct + '%';
     }
 
+    // Cached at drag-start only; reused for every pointermove/touchmove during
+    // the drag to avoid forcing a synchronous layout on each event.
+    var cachedRect = null;
+    function measureRect() {
+        cachedRect = slider.getBoundingClientRect();
+    }
+
     function getPos(clientX) {
-        var rect = slider.getBoundingClientRect();
+        var rect = cachedRect || slider.getBoundingClientRect();
         return Math.round(((clientX - rect.left) / rect.width) * 100);
     }
 
     slider.addEventListener('mousedown', function(e) {
         dragging = true;
+        measureRect();
         setPos(getPos(e.clientX));
         e.preventDefault();
     });
@@ -2152,7 +2219,8 @@ if (window.matchMedia('(max-width: 640px)').matches) {
 
     var isBnaDrag = false;
     slider.addEventListener('touchstart', function(e) {
-        var rect = slider.getBoundingClientRect();
+        measureRect();
+        var rect = cachedRect;
         var dividerX = rect.left + (pos / 100) * rect.width;
         isBnaDrag = Math.abs(e.touches[0].clientX - dividerX) <= 44;
         if (isBnaDrag) {
@@ -2221,7 +2289,16 @@ if (window.matchMedia('(max-width: 640px)').matches) {
         var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
         bar.style.transform = 'scaleX(' + Math.min(pct, 100) / 100 + ')';
     }
-    window.addEventListener('scroll', updateProgress, { passive: true });
+    var scrollTicking = false;
+    function onScroll() {
+        if (scrollTicking) return;
+        scrollTicking = true;
+        requestAnimationFrame(function() {
+            updateProgress();
+            scrollTicking = false;
+        });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
     updateProgress();
 })();
 </script>
@@ -2553,7 +2630,18 @@ if (window.matchMedia('(max-width: 640px)').matches) {
             marquee.style.animationDuration = (half / speed) + 's';
         }
         setDuration();
-        window.addEventListener('resize', setDuration, { passive: true });
+
+        // Throttle resize: coalesce rapid resize events into one rAF-scheduled
+        // read+write pair instead of forcing a reflow on every resize tick.
+        var resizeTicking = false;
+        window.addEventListener('resize', function() {
+            if (resizeTicking) return;
+            resizeTicking = true;
+            requestAnimationFrame(function() {
+                setDuration();
+                resizeTicking = false;
+            });
+        }, { passive: true });
 
         var io = new IntersectionObserver(function (entries) {
             marquee.classList.toggle('mrc-playing', entries[0].isIntersecting);
