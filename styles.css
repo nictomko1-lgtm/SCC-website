@@ -1,3 +1,74 @@
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 300;
+            font-display: optional;
+            src: url('fonts/inter-variable.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: optional;
+            src: url('fonts/inter-variable.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-display: optional;
+            src: url('fonts/inter-variable.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: optional;
+            src: url('fonts/inter-variable.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: optional;
+            src: url('fonts/inter-variable.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Bebas Neue';
+            font-style: normal;
+            font-weight: 400;
+            font-display: optional;
+            src: url('fonts/bebasneue-400.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Ephesis';
+            font-style: normal;
+            font-weight: 400;
+            font-display: optional;
+            src: url('fonts/ephesis-400.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Barlow Condensed';
+            font-style: normal;
+            font-weight: 600;
+            font-display: optional;
+            src: url('fonts/barlowcondensed-600.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Barlow Condensed';
+            font-style: normal;
+            font-weight: 700;
+            font-display: optional;
+            src: url('fonts/barlowcondensed-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Barlow Condensed';
+            font-style: normal;
+            font-weight: 800;
+            font-display: optional;
+            src: url('fonts/barlowcondensed-800.woff2') format('woff2');
+        }
+
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; overscroll-behavior: none; background: #09090C; }
         body {
